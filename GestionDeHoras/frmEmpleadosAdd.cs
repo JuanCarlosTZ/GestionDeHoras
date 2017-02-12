@@ -13,7 +13,8 @@ namespace GestionDeHoras
 {
     public partial class frmEmpleadosAdd : Form
     {
-        private SqlConnection oCon = null;
+        BaseDeDatos bd = new BaseDeDatos();
+        private SqlConnection oCon;
         public frmEmpleadosAdd()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace GestionDeHoras
 
         private void btnAgragar_Click(object sender, EventArgs e)
         {
-            SqlConnection oCon = new SqlConnection(@"Data Source=WENDY\SQLEXPRESS;Initial Catalog=DBUNAPEC;Integrated Security=True");
+            oCon = bd.getOcon();
             oCon.Open();
 
             string SQL = " Insert into Empleado (Id_empleado, Nombre, cedula,tanda,f_ingreso , Estado) values ( ";
@@ -33,10 +34,27 @@ namespace GestionDeHoras
             SQL += "'" + cbxEstado.Text + "'";
             SQL += ")";
 
-            SqlCommand ocdm = new SqlCommand(SQL, oCon);
-            ocdm.ExecuteNonQuery();
-            MessageBox.Show("Datos Guardados Correctamente");
-            this.Close();
+            try
+            {
+                SqlCommand ocdm = new SqlCommand(SQL, oCon);
+                ocdm.ExecuteNonQuery();
+                MessageBox.Show("Datos Guardados Correctamente");
+                limpiarCampos();
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show("Error al guardar los datos");
+            }
+            
+        }
+        public void limpiarCampos()
+        {
+            txtIdentificador.Clear();
+            txtNombre.Clear();
+            txtFchIngreso.Clear();
+            txtCedula.ResetText();
+            cbxEstado.ResetText();
+            cbxTanda.ResetText();
         }
     }
 }

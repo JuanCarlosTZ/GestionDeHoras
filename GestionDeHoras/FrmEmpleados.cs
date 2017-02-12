@@ -13,8 +13,9 @@ namespace GestionDeHoras
 {
     public partial class FrmEmpleados : Form
     {
-
-        SqlConnection ocon = null;
+        BaseDeDatos bd = new BaseDeDatos();
+        SqlConnection ocon;
+        
         public FrmEmpleados()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace GestionDeHoras
 
         public void consultarEmpleados(string pCriterio)
         {
-            ocon = new SqlConnection(@"Data Source=WENDY\SQLEXPRESS;Initial Catalog=DBUNAPEC;Integrated Security=True");
+            ocon = bd.getOcon();
             ocon.Open();
             string SQL = " Select * From Empleado";
             SQL += pCriterio;
@@ -69,14 +70,14 @@ namespace GestionDeHoras
 
         private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.dgvEmpleados.SelectedRows[0];
+            DataGridViewRow row = this.dgvEmpleados.Rows[0];
             FrmEdEmpleados frm = new FrmEdEmpleados();
             frm.Id_empleado = row.Cells[0].Value.ToString();
             frm.Nombre = row.Cells[1].Value.ToString();
             frm.cedula = row.Cells[2].Value.ToString();
-            frm.tanda = row.Cells[3].Value.ToString();
+            frm.Tanda = row.Cells[3].Value.ToString();
             frm.f_ingreso = row.Cells[4].Value.ToString();
-            frm.tanda= row.Cells[5].Value.ToString();
+            frm.Estado= row.Cells[5].Value.ToString();
             frm.operacion = "E";
             frm.ShowDialog();
         }

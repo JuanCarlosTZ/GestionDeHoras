@@ -13,8 +13,10 @@ namespace GestionDeHoras
 {
     public partial class FrmCampus : Form
     {
-
+        BaseDeDatos bd = new BaseDeDatos();
         SqlConnection ocon = null;
+        DataTable odt = new DataTable();
+        string FrmTipo = "Campus";
         public FrmCampus()
         {
             InitializeComponent();
@@ -22,17 +24,29 @@ namespace GestionDeHoras
 
         public void consultarCampus(string pCriterio)
         {
-            ocon = new SqlConnection(@"Data Source=WENDY\SQLEXPRESS;Initial Catalog=DBUNAPEC;Integrated Security=True");
-            ocon.Open();
-            string SQL = " Select * From Campus ";
-            SQL += pCriterio;
-            SQL += " Order by " + cbxCriterio.Text;
-            SqlDataAdapter oda = new SqlDataAdapter(SQL, ocon);
-            DataTable odt = new DataTable();
-            oda.Fill(odt);
-            dgdCampus.DataSource = odt;
-            dgdCampus.Refresh();
+            //ocon = bd.getOcon();
+            //ocon.Open();
+            //string SQL = " Select * From Campus ";
+            //SQL += pCriterio;
+            //SQL += " Order by " + cbxCriterio.Text;
+            //SqlDataAdapter oda = new SqlDataAdapter(SQL, ocon);
+            //DataTable odt = new DataTable();
+            //oda.Fill(odt);
 
+          
+            if (cbxCriterio.Text != "" && txtBuscar.Text != "")
+            {
+                odt = bd.consultar(FrmTipo, cbxCriterio.Text, txtBuscar.Text);
+            }
+            else
+            {
+                odt = bd.consultar(FrmTipo);
+            }
+            if (odt != null)
+            {
+                dgdCampus.DataSource = odt;
+                dgdCampus.Refresh();
+            }
         }
 
         
@@ -76,6 +90,17 @@ namespace GestionDeHoras
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             consultarCampus(" where " + cbxCriterio.Text + " like'%" + txtBuscar.Text + "%'");
+        }
+
+        private void dgdCampus_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgdCampus.Rows[0];
+            FrmCampusEdit frm = new FrmCampusEdit();
+            frm.Identificador = row.Cells[0].Value.ToString();
+            frm.Nombre = row.Cells[2].Value.ToString();
+            frm.Descripcion = row.Cells[1].Value.ToString();
+            frm.Estado = row.Cells[3].Value.ToString();
+            frm.ShowDialog();
         }
     }
 }

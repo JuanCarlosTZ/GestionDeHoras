@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,10 @@ using System.Windows.Forms;
 
 namespace GestionDeHoras
 {
+
     public partial class c_reservaciones : Form
     {
+      
         public c_reservaciones()
         {
             InitializeComponent();
@@ -45,6 +48,17 @@ namespace GestionDeHoras
             FrmEmpleados emp = new FrmEmpleados();
             emp.ShowDialog();
 
+        }
+
+        private void c_reservaciones_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmUsuario emp = new FrmUsuario();
+            emp.ShowDialog();
         }
     }
 }

@@ -13,11 +13,12 @@ namespace GestionDeHoras
 {
     public partial class FrmEdEmpleados : Form
     {
+        BaseDeDatos bd = new BaseDeDatos();
         private SqlConnection oCon = null;
         public string  Id_empleado = "";
         public string Nombre = "";
         public string cedula = "";
-        public string tanda = "";
+        public string Tanda = "";
         public string f_ingreso = "";
         public string Estado = "";
         public string operacion = "";
@@ -28,7 +29,8 @@ namespace GestionDeHoras
 
         private void FrmEdEmpleados_Load(object sender, EventArgs e)
         {
-            oCon = new SqlConnection(@"Data Source=WENDY\SQLEXPRESS;Initial Catalog=DBUNAPEC;Integrated Security=True");
+            
+            oCon = bd.getOcon();
             oCon.Open();
 
             if (!operacion.Equals("C"))
@@ -36,22 +38,10 @@ namespace GestionDeHoras
                 txtIdentificador.Text = Id_empleado;
                 txtNombre.Text = Nombre;
                 txtCedula.Text = cedula;
-                if (tanda.Equals("Mañana"))
-                    cbxTanda.SelectedIndex = 0;
-                else if(tanda.Equals("Tarde"))
-                {
-                    cbxTanda.SelectedIndex = 1;
-                }
-                else
-                    cbxTanda.SelectedIndex = 2;
+                cbxTanda.Text = Tanda;
                 txtFchIngreso.Text = f_ingreso;
-
-                if (Estado.Equals("Activo"))
-                    cbxEstado.SelectedIndex = 0;
-                      else
-                    cbxEstado.SelectedIndex = 1;
-
-
+                cbxEstado.Text = Estado;
+               
             }
 
         }

@@ -13,6 +13,8 @@ namespace GestionDeHoras
 {
     public partial class FrmCampusAdd : Form
     {
+        BaseDeDatos bd = new BaseDeDatos();
+        FrmCampus FRMoCon = new FrmCampus();
         private SqlConnection oCon = null;
 
         public FrmCampusAdd()
@@ -27,26 +29,40 @@ namespace GestionDeHoras
 
         private void btnAgragar_Click(object sender, EventArgs e)
         {
-            SqlConnection oCon = new SqlConnection(@"Data Source=WENDY\SQLEXPRESS;Initial Catalog=DBUNAPEC;Integrated Security=True");
-            oCon.Open();
-            
-            string SQL = " Insert into Campus (Id_Campus, Nombre, Estado, Descripcion) values ( ";
-            SQL += "'" + txtIdentificador.Text + "'" + ',';
-            SQL += "'" + txtNombre.Text + "'" + ',';
-            SQL += "'" + cbxEstado.Text + "'" + ',';
-            SQL += "'" + txtDescripcion.Text + "'" ;
-            SQL += ")";
+            try
+            {
+                SqlConnection oCon = bd.getOcon();
+                
+                oCon.Open();
 
-            SqlCommand ocdm = new SqlCommand(SQL, oCon);
-            ocdm.ExecuteNonQuery();
-            MessageBox.Show("Datos Guardados Correctamente");
-            this.Close();
+                string SQL = " Insert into Campus ( Nombre, Estado, Descripcion) values ( ";
+                
+                SQL += "'" + txtNombre.Text + "'" + ',';
+                SQL += "'" + cbxEstado.Text + "'" + ',';
+                SQL += "'" + txtDescripcion.Text + "'";
+                SQL += ")";
+
+           
+                SqlCommand ocdm = new SqlCommand(SQL, oCon);
+                ocdm.ExecuteNonQuery();
+                MessageBox.Show("Datos Guardados Correctamente");
+                this.Close();
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show("Error de Base De Datos");
+            }
+            
 
 
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            txtIdentificador.ResetText();
+            txtNombre.ResetText();
+            cbxEstado.ResetText();
+            txtDescripcion.ResetText();
 
         }
     }

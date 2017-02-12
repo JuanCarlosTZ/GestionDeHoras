@@ -39,3 +39,23 @@ C:\Users\CARMEN\Desktop\GestionDeHoras\GestionDeHoras\bin\Debug\GestionDeHoras.p
 C:\Users\CARMEN\Desktop\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmEmpleados.resources
 C:\Users\CARMEN\Desktop\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmEdEmpleados.resources
 C:\Users\CARMEN\Desktop\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.frmEmpleadosAdd.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\bin\Debug\GestionDeHoras.exe.config
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.exe
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.pdb
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\bin\Debug\GestionDeHoras.exe
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\bin\Debug\GestionDeHoras.pdb
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.csprojResolveAssemblyReference.cache
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.Aulas.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmCampus.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmCampusAdd.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmEdEmpleados.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.frmEdificio.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmEmpleados.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.frmEmpleadosAdd.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.Properties.Resources.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.csproj.GenerateResource.Cache
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.c_reservaciones.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmUsuario.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmUsuarioAdd.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmUsuarioEdit.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmCampusEdit.resources
