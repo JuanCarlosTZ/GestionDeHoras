@@ -125,7 +125,7 @@
             // txtBuscar
             // 
             this.txtBuscar.Location = new System.Drawing.Point(153, 47);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(225, 22);
             this.txtBuscar.TabIndex = 4;
@@ -134,14 +134,8 @@
             // cbxCriterio
             // 
             this.cbxCriterio.FormattingEnabled = true;
-            this.cbxCriterio.Items.AddRange(new object[] {
-            "",
-            "id_campus ",
-            "Nombre",
-            "Estado",
-            "Descripcion"});
             this.cbxCriterio.Location = new System.Drawing.Point(12, 46);
-            this.cbxCriterio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxCriterio.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCriterio.Name = "cbxCriterio";
             this.cbxCriterio.Size = new System.Drawing.Size(132, 24);
             this.cbxCriterio.TabIndex = 5;

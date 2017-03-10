@@ -165,13 +165,6 @@
             // cbxCriterio
             // 
             this.cbxCriterio.FormattingEnabled = true;
-            this.cbxCriterio.Items.AddRange(new object[] {
-            "",
-            "No_carnet",
-            "Nombre",
-            "Cedula",
-            "Tipo_usuario",
-            "Estado"});
             this.cbxCriterio.Location = new System.Drawing.Point(65, 20);
             this.cbxCriterio.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCriterio.Name = "cbxCriterio";

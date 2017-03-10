@@ -22,17 +22,8 @@ namespace GestionDeHoras
             InitializeComponent();
         }
 
-        public void consultarCampus(string pCriterio)
+        public void consultarCampus()
         {
-            //ocon = bd.getOcon();
-            //ocon.Open();
-            //string SQL = " Select * From Campus ";
-            //SQL += pCriterio;
-            //SQL += " Order by " + cbxCriterio.Text;
-            //SqlDataAdapter oda = new SqlDataAdapter(SQL, ocon);
-            //DataTable odt = new DataTable();
-            //oda.Fill(odt);
-
           
             if (cbxCriterio.Text != "" && txtBuscar.Text != "")
             {
@@ -42,11 +33,9 @@ namespace GestionDeHoras
             {
                 odt = bd.consultar(FrmTipo);
             }
-            if (odt != null)
-            {
                 dgdCampus.DataSource = odt;
                 dgdCampus.Refresh();
-            }
+            
         }
 
         
@@ -61,8 +50,8 @@ namespace GestionDeHoras
 
         private void FrmCampus_Load(object sender, EventArgs e)
         {
-            cbxCriterio.SelectedIndex = 0;
-            consultarCampus("");
+            cargarCriterio();
+            consultarCampus();
             
         }
 
@@ -79,7 +68,7 @@ namespace GestionDeHoras
 
         private void FrmCampus_Activated(object sender, EventArgs e)
         {
-            consultarCampus("");
+            consultarCampus();
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -89,7 +78,7 @@ namespace GestionDeHoras
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            consultarCampus(" where " + cbxCriterio.Text + " like'%" + txtBuscar.Text + "%'");
+            consultarCampus();
         }
 
         private void dgdCampus_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -102,5 +91,24 @@ namespace GestionDeHoras
             frm.Estado = row.Cells[3].Value.ToString();
             frm.ShowDialog();
         }
+
+        public void cargarCriterio()
+        {
+            cbxCriterio.Items.Add("");
+            if (bd.conectar())
+            {
+                List<string> criterio = bd.camposPorTabla(FrmTipo);
+                int i = 0;
+                while (i < criterio.Count())
+                {
+                    cbxCriterio.Items.Add(criterio.ElementAt(i));
+                    i = i + 1;
+
+                }
+            }
+
+        }
+
+
     }
 }

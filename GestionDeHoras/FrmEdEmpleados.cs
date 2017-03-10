@@ -30,8 +30,6 @@ namespace GestionDeHoras
         private void FrmEdEmpleados_Load(object sender, EventArgs e)
         {
             
-            oCon = bd.getOcon();
-            oCon.Open();
 
             if (!operacion.Equals("C"))
             {
@@ -48,17 +46,7 @@ namespace GestionDeHoras
 
         private void btnAgragar_Click(object sender, EventArgs e)
         {
-            string sSQL = "";
-            if (operacion.Equals("C"))
-            {
-                sSQL = "insert into Empleado";
-                sSQL += " (Id_empleado, Nombre, cedula, tanda,f_ingreso,Estado) ";
-                sSQL += " values ('" + txtIdentificador.Text + "','" + txtNombre.Text + "','";
-                sSQL +=  txtCedula.Text + "','" + cbxTanda.Text + "','";
-                sSQL += txtFchIngreso.Text + "', '" + cbxTanda.Text + "')";
-            }
-            else
-            {
+            string 
                 sSQL = "update Empleado ";
                 sSQL += " set Nombre =  '" + txtNombre.Text + "',";
                 sSQL += " cedula =  '" + txtCedula.Text + "',";
@@ -66,29 +54,24 @@ namespace GestionDeHoras
                 sSQL += " f_ingreso =  '" + txtFchIngreso.Text + "',";
                 sSQL += " Estado  =  '" + cbxEstado.Text + "' ";
                 sSQL += " where Id_empleado = '" + txtIdentificador.Text + "'";
-            }
 
-            SqlCommand oCmd = new SqlCommand(sSQL, oCon);
-            oCmd.ExecuteNonQuery();
-            MessageBox.Show("Registro guardado con exito");
-            this.Close();
+            if(bd.actualizar(sSQL))
+            {
+                this.Close();
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            try
-            {
+           
                 string sSQL = "delete Empleado";
                 sSQL += " where Id_empleado = '" + txtIdentificador.Text + "'";
-                SqlCommand oCmd = new SqlCommand(sSQL, oCon);
-                oCmd.ExecuteNonQuery();
-                MessageBox.Show("Registro eliminado con exito");
+
+            if (bd.actualizar(sSQL))
+            {
                 this.Close();
             }
-            catch (Exception ex)
-            {
-                string errMsg = ex.Message;
-            }
+
         }
     }
 }

@@ -15,41 +15,51 @@ namespace GestionDeHoras
     {
         BaseDeDatos bd = new BaseDeDatos();
         SqlConnection ocon;
+        DataTable odt;
+        string FrmTipo = "Empleado";
         
         public FrmEmpleados()
         {
             InitializeComponent();
         }
 
-        public void consultarEmpleados(string pCriterio)
+        public void consultarEmpleados()
         {
-            ocon = bd.getOcon();
-            ocon.Open();
-            string SQL = " Select * From Empleado";
-            SQL += pCriterio;
-            SQL += " Order by " + cbxCriterio.Text;
-            SqlDataAdapter oda = new SqlDataAdapter(SQL, ocon);
-            DataTable odt = new DataTable();
-            oda.Fill(odt);
-            dgvEmpleados.DataSource = odt;
-            dgvEmpleados.Refresh();
+
+            if (bd.conectar())
+            {
+                string vCriterio = txtTextoABuscar.Text;
+                string pCriterio = cbxCriterio.Text; 
+                if (pCriterio != "" || vCriterio != "")
+                {
+                    odt = bd.consultar(FrmTipo, pCriterio,vCriterio);
+
+                }
+                else
+                {
+                    odt = bd.consultar(FrmTipo);
+                }
+
+                dgvEmpleados.DataSource = odt;
+                dgvEmpleados.Refresh();
+            }
 
         }
 
         private void FrmEmpleados_Load(object sender, EventArgs e)
         {
-            cbxCriterio.SelectedIndex = 0;
-            consultarEmpleados("");
+            cargarCriterio();
+            consultarEmpleados();
         }
 
         private void FrmEmpleados_Activated(object sender, EventArgs e)
         {
-            consultarEmpleados("");
+            //consultarEmpleados();
         }
 
         private void cmdBuscar_Click(object sender, EventArgs e)
         {
-            consultarEmpleados(" where " + cbxCriterio.Text + " like'%" + txtTextoABuscar.Text + "%'");
+            consultarEmpleados();
         }
 
         private void txtTextoABuscar_TextChanged(object sender, EventArgs e)
@@ -81,5 +91,26 @@ namespace GestionDeHoras
             frm.operacion = "E";
             frm.ShowDialog();
         }
+
+        public void cargarCriterio()
+        {
+            cbxCriterio.Items.Add("");
+
+            if (bd.conectar())
+            {
+                List<string> criterio = bd.camposPorTabla(FrmTipo);
+                int i = 0;            
+                while (i < criterio.Count())
+                {
+                    cbxCriterio.Items.Add(criterio.ElementAt(i));
+                    i = i + 1;
+
+                }
+            }
+            
+
+        }
+
+
     }
 }

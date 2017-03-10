@@ -28,33 +28,66 @@ namespace GestionDeHoras
         }
         public DataTable consultar(string pFrmTipo, string pCriterioTipo, string pCriterio)
         {
-             
-            if(!conectar())
+            if (conectar())
+            {
+                string SQL = " Select * From " + pFrmTipo;
+                SQL += " where " + pCriterioTipo + " Like '%" + pCriterio + "%' ";
+                SQL += " Order by " + pCriterioTipo;
+
+                return ejecutarSQL(SQL);
+            }
+            else
             {
                 return null;
             }
             
+        }
 
-            
-            string SQL = " Select * From " + pFrmTipo;
-            SQL += " where " + pCriterioTipo + " Like '%" + pCriterio + "%' ";
-            SQL += " Order by "+ pCriterioTipo;
+        public DataTable ejecutarSQL(string sql)
+        {
 
-            try
+            if (conectar())
             {
-                oda = new SqlDataAdapter(SQL, ocon);
-                odt = new DataTable();
-                oda.Fill(odt);
+                try
+                {
+                    oda = new SqlDataAdapter(sql, ocon);
+                    odt = new DataTable();
+                    oda.Fill(odt);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error en la consulta");
+                    return null;
+                }
+
+
+                return odt;
             }
-            catch (Exception error)
+            else
             {
-                MessageBox.Show("Error en la consulata");
                 return null;
             }
-            
+        }
 
-            return odt;
-            
+
+        public List<string> camposPorTabla(string frmTipo)
+        {
+            if (conectar())
+            {
+                string SQL = "  SELECT SO.NAME, SC.NAME as campo";
+                SQL += "       FROM sys.objects SO INNER JOIN sys.columns SC ";
+                SQL += "        ON SO.OBJECT_ID = SC.OBJECT_ID ";
+                SQL += "        WHERE SO.TYPE = 'U' and SO.NAME = '" + frmTipo + "'";
+                SQL += "        ORDER BY SO.NAME, SC.NAME ";
+
+                odt = ejecutarSQL(SQL);
+                return odt.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("campo")).ToList();
+            }
+            else
+            {
+                return null;
+            }
+
         }
 
         public bool actualizar(string pSQL)
@@ -67,24 +100,22 @@ namespace GestionDeHoras
 
                     SqlCommand ocdm = new SqlCommand(pSQL, ocon);
                     ocdm.ExecuteNonQuery();
-                    MessageBox.Show("Datos Guardados Correctamente");
+                    MessageBox.Show("Datos actualizados Correctamente");
 
                 }
                 catch (Exception error)
                 {
-                    MessageBox.Show("Error al guardar los datos");
+                    MessageBox.Show("Error al actualizar los datos");
                     return false;
                 }
 
 
-
+                return true;
             }
             else
             {
-                return false;
+                return false ;
             }
-
-            return true;
             
         }
 
@@ -128,20 +159,8 @@ namespace GestionDeHoras
             string SQL = " Select * From " + pFrmTipo;
             SQL += " Order by 1 ";
 
-            try
-            {
-                oda = new SqlDataAdapter(SQL, ocon);
-                odt = new DataTable();
-                oda.Fill(odt);
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Error en la consulata");
-                return null;
-            }
-
-
-            return odt;
+           
+            return ejecutarSQL(SQL);
         }
 
         public bool conectar()

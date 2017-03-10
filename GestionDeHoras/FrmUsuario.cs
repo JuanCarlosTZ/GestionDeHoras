@@ -29,23 +29,39 @@ namespace GestionDeHoras
         }
 
 
+        public void cargarCriterio()
+        {
+            cbxCriterio.Items.Add("");
+            if (bd.conectar())
+            {
+                List<string> criterio = bd.camposPorTabla(FrmTipo);
+                int i = 0;
+                while (i < criterio.Count())
+                {
+                    cbxCriterio.Items.Add(criterio.ElementAt(i));
+                    i = i + 1;
+
+                }
+            }
+            
+        }
+
+
         public void consultarUsuario()
         {
-
-            if (cbxCriterio.Text != "" && txtBuscar.Text != "")
-            {
-                odt = bd.consultar(FrmTipo, cbxCriterio.Text, txtBuscar.Text);
-            }
-            else
-            {
-                odt = bd.consultar(FrmTipo);
-            }
-            if (odt != null)
-            {
-                dgdUsuario.DataSource = odt;
-                dgdUsuario.Refresh();
-            }
-
+           
+                if (cbxCriterio.Text != "" && txtBuscar.Text != "")
+                {
+                    odt = bd.consultar(FrmTipo, cbxCriterio.Text, txtBuscar.Text);
+                }
+                else
+                {
+                    odt = bd.consultar(FrmTipo);
+                }
+                    dgdUsuario.DataSource = odt;
+                    dgdUsuario.Refresh();
+                
+            
 
         }
 
@@ -55,6 +71,8 @@ namespace GestionDeHoras
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
             consultarUsuario();
+            cargarCriterio();
+
 
         }
 

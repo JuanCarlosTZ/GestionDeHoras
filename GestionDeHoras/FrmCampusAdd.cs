@@ -29,12 +29,7 @@ namespace GestionDeHoras
 
         private void btnAgragar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SqlConnection oCon = bd.getOcon();
-                
-                oCon.Open();
-
+            
                 string SQL = " Insert into Campus ( Nombre, Estado, Descripcion) values ( ";
                 
                 SQL += "'" + txtNombre.Text + "'" + ',';
@@ -42,16 +37,11 @@ namespace GestionDeHoras
                 SQL += "'" + txtDescripcion.Text + "'";
                 SQL += ")";
 
-           
-                SqlCommand ocdm = new SqlCommand(SQL, oCon);
-                ocdm.ExecuteNonQuery();
-                MessageBox.Show("Datos Guardados Correctamente");
+            if (bd.insertar(SQL))
+            {
                 this.Close();
             }
-            catch(Exception error)
-            {
-                MessageBox.Show("Error de Base De Datos");
-            }
+                
             
 
 
