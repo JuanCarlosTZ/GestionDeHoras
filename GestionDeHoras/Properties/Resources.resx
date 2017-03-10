@@ -121,4 +121,25 @@
   <data name="Campus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Campus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Campus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Campus1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noun_357355_cc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noun_357355_cc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noun_671576_cc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noun_671576_cc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noun_707757_cc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noun_707757_cc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noun_715223_cc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noun_715223_cc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noun_798372_cc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noun_798372_cc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noun_862480_cc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noun_862480_cc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

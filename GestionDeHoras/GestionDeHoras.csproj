@@ -214,6 +214,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Imagenes\Campus.png" />
+    <None Include="Resources\noun_862480_cc1.png" />
+    <None Include="Resources\noun_798372_cc1.png" />
+    <None Include="Resources\noun_715223_cc1.png" />
+    <None Include="Resources\noun_707757_cc1.png" />
+    <None Include="Resources\noun_671576_cc1.png" />
+    <None Include="Resources\noun_357355_cc1.png" />
+    <None Include="Resources\Campus1.png" />
     <None Include="Resources\Campus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
