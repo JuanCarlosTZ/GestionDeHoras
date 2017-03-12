@@ -34,15 +34,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtNo_carnet = new System.Windows.Forms.MaskedTextBox();
+            this.txtCedula = new System.Windows.Forms.MaskedTextBox();
+            this.cbxEstado = new System.Windows.Forms.ComboBox();
+            this.cbxTipo_usuario = new System.Windows.Forms.ComboBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtNo_carnet = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtCedula = new System.Windows.Forms.TextBox();
-            this.cbxTipo_usuario = new System.Windows.Forms.ComboBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.cbxEstado = new System.Windows.Forms.ComboBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 17);
             this.label6.TabIndex = 38;
-            this.label6.Text = "Cedula";
+            this.label6.Text = "Cédula";
             // 
             // label5
             // 
@@ -96,17 +96,62 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtNo_carnet);
+            this.panel1.Controls.Add(this.txtCedula);
             this.panel1.Controls.Add(this.cbxEstado);
             this.panel1.Controls.Add(this.cbxTipo_usuario);
-            this.panel1.Controls.Add(this.txtCedula);
             this.panel1.Controls.Add(this.txtNombre);
-            this.panel1.Controls.Add(this.txtNo_carnet);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(28, 74);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(365, 279);
             this.panel1.TabIndex = 36;
+            // 
+            // txtNo_carnet
+            // 
+            this.txtNo_carnet.Location = new System.Drawing.Point(143, 36);
+            this.txtNo_carnet.Mask = "999999999";
+            this.txtNo_carnet.Name = "txtNo_carnet";
+            this.txtNo_carnet.Size = new System.Drawing.Size(183, 22);
+            this.txtNo_carnet.TabIndex = 37;
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.Location = new System.Drawing.Point(143, 125);
+            this.txtCedula.Mask = "999-0000000-0";
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(183, 22);
+            this.txtCedula.TabIndex = 36;
+            // 
+            // cbxEstado
+            // 
+            this.cbxEstado.FormattingEnabled = true;
+            this.cbxEstado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.cbxEstado.Location = new System.Drawing.Point(143, 206);
+            this.cbxEstado.Name = "cbxEstado";
+            this.cbxEstado.Size = new System.Drawing.Size(183, 24);
+            this.cbxEstado.TabIndex = 35;
+            // 
+            // cbxTipo_usuario
+            // 
+            this.cbxTipo_usuario.FormattingEnabled = true;
+            this.cbxTipo_usuario.Items.AddRange(new object[] {
+            "Estudiante",
+            "Empleado"});
+            this.cbxTipo_usuario.Location = new System.Drawing.Point(143, 163);
+            this.cbxTipo_usuario.Name = "cbxTipo_usuario";
+            this.cbxTipo_usuario.Size = new System.Drawing.Size(183, 24);
+            this.cbxTipo_usuario.TabIndex = 34;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(143, 84);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(183, 22);
+            this.txtNombre.TabIndex = 32;
             // 
             // label7
             // 
@@ -127,37 +172,15 @@
             this.panel2.Size = new System.Drawing.Size(365, 49);
             this.panel2.TabIndex = 37;
             // 
-            // txtNo_carnet
+            // button2
             // 
-            this.txtNo_carnet.Location = new System.Drawing.Point(143, 33);
-            this.txtNo_carnet.Name = "txtNo_carnet";
-            this.txtNo_carnet.Size = new System.Drawing.Size(183, 22);
-            this.txtNo_carnet.TabIndex = 31;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(143, 84);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(183, 22);
-            this.txtNombre.TabIndex = 32;
-            // 
-            // txtCedula
-            // 
-            this.txtCedula.Location = new System.Drawing.Point(143, 127);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(183, 22);
-            this.txtCedula.TabIndex = 33;
-            // 
-            // cbxTipo_usuario
-            // 
-            this.cbxTipo_usuario.FormattingEnabled = true;
-            this.cbxTipo_usuario.Items.AddRange(new object[] {
-            "Estudiante",
-            "Empleado"});
-            this.cbxTipo_usuario.Location = new System.Drawing.Point(143, 163);
-            this.cbxTipo_usuario.Name = "cbxTipo_usuario";
-            this.cbxTipo_usuario.Size = new System.Drawing.Size(183, 24);
-            this.cbxTipo_usuario.TabIndex = 34;
+            this.button2.Location = new System.Drawing.Point(233, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 33);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "&Limpiar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnAgregar
             // 
@@ -168,26 +191,6 @@
             this.btnAgregar.Text = "&Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(233, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 33);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "&Limpiar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // cbxEstado
-            // 
-            this.cbxEstado.FormattingEnabled = true;
-            this.cbxEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.cbxEstado.Location = new System.Drawing.Point(143, 206);
-            this.cbxEstado.Name = "cbxEstado";
-            this.cbxEstado.Size = new System.Drawing.Size(183, 24);
-            this.cbxEstado.TabIndex = 35;
             // 
             // FrmUsuarioAdd
             // 
@@ -203,6 +206,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "FrmUsuarioAdd";
             this.Text = "FrmUsuarioAdd";
+            this.Load += new System.EventHandler(this.FrmUsuarioAdd_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -222,11 +226,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox cbxTipo_usuario;
-        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtNo_carnet;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ComboBox cbxEstado;
+        private System.Windows.Forms.MaskedTextBox txtCedula;
+        private System.Windows.Forms.MaskedTextBox txtNo_carnet;
     }
 }

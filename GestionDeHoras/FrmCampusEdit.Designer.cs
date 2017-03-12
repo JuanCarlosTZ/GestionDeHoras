@@ -46,9 +46,6 @@
             // cbxEstado
             // 
             this.cbxEstado.FormattingEnabled = true;
-            this.cbxEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
             this.cbxEstado.Location = new System.Drawing.Point(142, 211);
             this.cbxEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cbxEstado.Name = "cbxEstado";

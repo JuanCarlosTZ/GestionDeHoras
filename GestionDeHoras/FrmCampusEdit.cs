@@ -13,6 +13,7 @@ namespace GestionDeHoras
     public partial class FrmCampusEdit : Form
     {
         BaseDeDatos bd = new BaseDeDatos();
+        DataTable odt = new DataTable();
         public string Identificador = "";
         public string Nombre = "";
         public string Descripcion = "";
@@ -46,6 +47,26 @@ namespace GestionDeHoras
             txtDescripcion.Text = Descripcion;
             cbxEstado.Text = Estado;
             
+        }
+
+
+
+        public void CargarEstado()
+        {
+            if (bd.conectar())
+            {
+                odt = bd.consultar("Estado_Usuario");
+                List<string> estadoUsuario = odt.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Nombre")).ToList();
+                int i = 0;
+                cbxEstado.Items.Add("");
+                while (i < estadoUsuario.Count())
+                {
+                    cbxEstado.Items.Add(estadoUsuario.ElementAt(i));
+                    i = i + 1;
+
+                }
+            }
+
         }
     }
 }

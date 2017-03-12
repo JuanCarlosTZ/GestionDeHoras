@@ -19,13 +19,20 @@ namespace GestionDeHoras
         SqlDataAdapter oda;
         DataTable odt;
         string SQL;
-        string FrmTipo = "Usuario";
         string criterio;
         BaseDeDatos bd = new BaseDeDatos();
-
+        string FrmTipo = "Usuario";
         public FrmUsuario()
         {
             InitializeComponent();
+
+           
+        }
+        
+
+        public string VerFrmTipo()
+        {
+            return FrmTipo;
         }
 
 

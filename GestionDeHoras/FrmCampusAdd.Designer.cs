@@ -147,11 +147,8 @@
             // cbxEstado
             // 
             this.cbxEstado.FormattingEnabled = true;
-            this.cbxEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
             this.cbxEstado.Location = new System.Drawing.Point(175, 196);
-            this.cbxEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cbxEstado.Name = "cbxEstado";
             this.cbxEstado.Size = new System.Drawing.Size(207, 24);
             this.cbxEstado.TabIndex = 12;
@@ -160,7 +157,7 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(55, 65);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(365, 214);
             this.panel1.TabIndex = 13;
@@ -168,7 +165,7 @@
             // panel2
             // 
             this.panel2.Location = new System.Drawing.Point(55, 297);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(365, 49);
             this.panel2.TabIndex = 14;

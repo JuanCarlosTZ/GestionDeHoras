@@ -131,6 +131,7 @@
     <Compile Include="FrmUsuario.Designer.cs">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validar.cs" />
     <EmbeddedResource Include="Aulas.resx">
       <DependentUpon>Aulas.cs</DependentUpon>
     </EmbeddedResource>

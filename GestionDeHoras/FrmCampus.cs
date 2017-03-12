@@ -22,6 +22,11 @@ namespace GestionDeHoras
             InitializeComponent();
         }
 
+        public string VerFrmTipo()
+        {
+            return FrmTipo;
+        }
+
         public void consultarCampus()
         {
           

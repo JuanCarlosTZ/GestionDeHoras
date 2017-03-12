@@ -23,6 +23,11 @@ namespace GestionDeHoras
             InitializeComponent();
         }
 
+        public string VerFrmTipo()
+        {
+            return FrmTipo;
+        }
+
         public void consultarEmpleados()
         {
 

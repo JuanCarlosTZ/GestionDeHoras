@@ -34,9 +34,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCedula = new System.Windows.Forms.MaskedTextBox();
             this.cbxEstado = new System.Windows.Forms.ComboBox();
             this.cbxTipo_usuario = new System.Windows.Forms.ComboBox();
-            this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtNo_carnet = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -96,9 +96,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtCedula);
             this.panel1.Controls.Add(this.cbxEstado);
             this.panel1.Controls.Add(this.cbxTipo_usuario);
-            this.panel1.Controls.Add(this.txtCedula);
             this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Controls.Add(this.txtNo_carnet);
             this.panel1.Controls.Add(this.label7);
@@ -108,12 +108,17 @@
             this.panel1.Size = new System.Drawing.Size(365, 279);
             this.panel1.TabIndex = 43;
             // 
+            // txtCedula
+            // 
+            this.txtCedula.Location = new System.Drawing.Point(143, 125);
+            this.txtCedula.Mask = "000-0000000-0";
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(183, 22);
+            this.txtCedula.TabIndex = 36;
+            // 
             // cbxEstado
             // 
             this.cbxEstado.FormattingEnabled = true;
-            this.cbxEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
             this.cbxEstado.Location = new System.Drawing.Point(143, 206);
             this.cbxEstado.Name = "cbxEstado";
             this.cbxEstado.Size = new System.Drawing.Size(183, 24);
@@ -122,20 +127,10 @@
             // cbxTipo_usuario
             // 
             this.cbxTipo_usuario.FormattingEnabled = true;
-            this.cbxTipo_usuario.Items.AddRange(new object[] {
-            "Estudiante",
-            "Empleado"});
             this.cbxTipo_usuario.Location = new System.Drawing.Point(143, 163);
             this.cbxTipo_usuario.Name = "cbxTipo_usuario";
             this.cbxTipo_usuario.Size = new System.Drawing.Size(183, 24);
             this.cbxTipo_usuario.TabIndex = 34;
-            // 
-            // txtCedula
-            // 
-            this.txtCedula.Location = new System.Drawing.Point(143, 127);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(183, 22);
-            this.txtCedula.TabIndex = 33;
             // 
             // txtNombre
             // 
@@ -223,12 +218,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cbxEstado;
         private System.Windows.Forms.ComboBox cbxTipo_usuario;
-        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtNo_carnet;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.MaskedTextBox txtCedula;
     }
 }

@@ -43,6 +43,24 @@ namespace GestionDeHoras
             
         }
 
+        public DataTable buscar(string pFrmTipo, string pCriterioTipo, string pCriterio)
+        {
+            if (conectar())
+            {
+                string SQL = " Select * From " + pFrmTipo;
+                SQL += " where " + pCriterioTipo + " = '" + pCriterio + "' ";
+                SQL += " Order by " + pCriterioTipo;
+
+                return ejecutarSQL(SQL);
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+
         public DataTable ejecutarSQL(string sql)
         {
 
