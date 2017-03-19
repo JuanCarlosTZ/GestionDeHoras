@@ -60,5 +60,25 @@ namespace GestionDeHoras
             FrmUsuario emp = new FrmUsuario();
             emp.ShowDialog();
         }
+
+        private void btnEdificio_Click(object sender, EventArgs e)
+        {
+            new frmEdificio().Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new FrmTanda().Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            new FrmEstudiante().ShowDialog();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            new FrmProfesor().Show();
+        }
     }
 }

@@ -75,24 +75,6 @@
     <Compile Include="FrmCampus.Designer.cs">
       <DependentUpon>FrmCampus.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCampusAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCampusAdd.Designer.cs">
-      <DependentUpon>FrmCampusAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCampusEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCampusEdit.Designer.cs">
-      <DependentUpon>FrmCampusEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmEdEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmEdEmpleados.Designer.cs">
-      <DependentUpon>FrmEdEmpleados.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmEdificio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,23 +87,23 @@
     <Compile Include="FrmEmpleados.Designer.cs">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEmpleadosAdd.cs">
+    <Compile Include="FrmEstudiante.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEmpleadosAdd.Designer.cs">
-      <DependentUpon>frmEmpleadosAdd.cs</DependentUpon>
+    <Compile Include="FrmEstudiante.Designer.cs">
+      <DependentUpon>FrmEstudiante.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuarioAdd.cs">
+    <Compile Include="FrmProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUsuarioAdd.Designer.cs">
-      <DependentUpon>FrmUsuarioAdd.cs</DependentUpon>
+    <Compile Include="FrmProfesor.Designer.cs">
+      <DependentUpon>FrmProfesor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuarioEdit.cs">
+    <Compile Include="FrmTanda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUsuarioEdit.Designer.cs">
-      <DependentUpon>FrmUsuarioEdit.cs</DependentUpon>
+    <Compile Include="FrmTanda.Designer.cs">
+      <DependentUpon>FrmTanda.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,29 +123,20 @@
     <EmbeddedResource Include="FrmCampus.resx">
       <DependentUpon>FrmCampus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCampusAdd.resx">
-      <DependentUpon>FrmCampusAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCampusEdit.resx">
-      <DependentUpon>FrmCampusEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdEmpleados.resx">
-      <DependentUpon>FrmEdEmpleados.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmEdificio.resx">
       <DependentUpon>frmEdificio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEmpleadosAdd.resx">
-      <DependentUpon>frmEmpleadosAdd.cs</DependentUpon>
+    <EmbeddedResource Include="FrmEstudiante.resx">
+      <DependentUpon>FrmEstudiante.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUsuarioAdd.resx">
-      <DependentUpon>FrmUsuarioAdd.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProfesor.resx">
+      <DependentUpon>FrmProfesor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUsuarioEdit.resx">
-      <DependentUpon>FrmUsuarioEdit.cs</DependentUpon>
+    <EmbeddedResource Include="FrmTanda.resx">
+      <DependentUpon>FrmTanda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

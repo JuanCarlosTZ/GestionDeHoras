@@ -1,6 +1,6 @@
 ﻿namespace GestionDeHoras
 {
-    partial class FrmEmpleados
+    partial class FrmProfesor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmpleados));
-            this.tabControlEmpleado = new System.Windows.Forms.TabControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProfesor));
+            this.tabControlProfesor = new System.Windows.Forms.TabControl();
             this.tabPageConsulta = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbxCriterio = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgdEmpleado = new System.Windows.Forms.DataGridView();
+            this.dgdProfesor = new System.Windows.Forms.DataGridView();
             this.tabPageMantenimiento = new System.Windows.Forms.TabPage();
             this.dgdUsuario = new System.Windows.Forms.DataGridView();
             this.cbxCriterioUsuario = new System.Windows.Forms.ComboBox();
@@ -50,7 +52,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtID_Empleado = new System.Windows.Forms.MaskedTextBox();
+            this.txtID_Profesor = new System.Windows.Forms.MaskedTextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -68,34 +70,30 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dbunapecDataSet1 = new GestionDeHoras.DBUNAPECDataSet();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnBuscarUsuario = new System.Windows.Forms.Button();
-            this.tabControlEmpleado.SuspendLayout();
+            this.tabControlProfesor.SuspendLayout();
             this.tabPageConsulta.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgdEmpleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgdProfesor)).BeginInit();
             this.tabPageMantenimiento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgdUsuario)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dbunapecDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControlEmpleado
+            // tabControlProfesor
             // 
-            this.tabControlEmpleado.Controls.Add(this.tabPageConsulta);
-            this.tabControlEmpleado.Controls.Add(this.tabPageMantenimiento);
-            this.tabControlEmpleado.Location = new System.Drawing.Point(12, 65);
-            this.tabControlEmpleado.Name = "tabControlEmpleado";
-            this.tabControlEmpleado.SelectedIndex = 0;
-            this.tabControlEmpleado.Size = new System.Drawing.Size(880, 457);
-            this.tabControlEmpleado.TabIndex = 16;
+            this.tabControlProfesor.Controls.Add(this.tabPageConsulta);
+            this.tabControlProfesor.Controls.Add(this.tabPageMantenimiento);
+            this.tabControlProfesor.Location = new System.Drawing.Point(47, 71);
+            this.tabControlProfesor.Name = "tabControlProfesor";
+            this.tabControlProfesor.SelectedIndex = 0;
+            this.tabControlProfesor.Size = new System.Drawing.Size(880, 457);
+            this.tabControlProfesor.TabIndex = 18;
             // 
             // tabPageConsulta
             // 
@@ -154,6 +152,18 @@
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNuevo.BackgroundImage")));
+            this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNuevo.Location = new System.Drawing.Point(8, 11);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(57, 46);
+            this.btnNuevo.TabIndex = 0;
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtBuscar);
@@ -195,9 +205,21 @@
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar.Location = new System.Drawing.Point(8, 11);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(57, 46);
+            this.btnBuscar.TabIndex = 0;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgdEmpleado);
+            this.groupBox2.Controls.Add(this.dgdProfesor);
             this.groupBox2.Location = new System.Drawing.Point(32, 98);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
@@ -206,19 +228,17 @@
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             // 
-            // dgdEmpleado
+            // dgdProfesor
             // 
-            this.dgdEmpleado.AllowUserToAddRows = false;
-            this.dgdEmpleado.AllowUserToDeleteRows = false;
-            this.dgdEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgdEmpleado.Location = new System.Drawing.Point(9, 22);
-            this.dgdEmpleado.Margin = new System.Windows.Forms.Padding(4);
-            this.dgdEmpleado.Name = "dgdEmpleado";
-            this.dgdEmpleado.ReadOnly = true;
-            this.dgdEmpleado.Size = new System.Drawing.Size(768, 271);
-            this.dgdEmpleado.TabIndex = 0;
-            this.dgdEmpleado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdEmpleado_CellContentClick);
-            this.dgdEmpleado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellDoubleClick);
+            this.dgdProfesor.AllowUserToAddRows = false;
+            this.dgdProfesor.AllowUserToDeleteRows = false;
+            this.dgdProfesor.Location = new System.Drawing.Point(0, 0);
+            this.dgdProfesor.Name = "dgdProfesor";
+            this.dgdProfesor.ReadOnly = true;
+            this.dgdProfesor.Size = new System.Drawing.Size(777, 293);
+            this.dgdProfesor.TabIndex = 0;
+            this.dgdProfesor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdProfesor_CellContentClick);
+            this.dgdProfesor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdProfesor_CellContentClick);
             // 
             // tabPageMantenimiento
             // 
@@ -240,6 +260,7 @@
             this.tabPageMantenimiento.TabIndex = 1;
             this.tabPageMantenimiento.Text = "Mantenimiento";
             this.tabPageMantenimiento.UseVisualStyleBackColor = true;
+            this.tabPageMantenimiento.Click += new System.EventHandler(this.tabPageMantenimiento_Click);
             // 
             // dgdUsuario
             // 
@@ -253,7 +274,7 @@
             this.dgdUsuario.Size = new System.Drawing.Size(240, 150);
             this.dgdUsuario.TabIndex = 56;
             this.dgdUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdUsuario_CellContentClick);
-            this.dgdUsuario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dgdUsuario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdUsuario_CellContentClick);
             // 
             // cbxCriterioUsuario
             // 
@@ -297,7 +318,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.txtContraseña);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.txtID_Empleado);
+            this.panel1.Controls.Add(this.txtID_Profesor);
             this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
@@ -328,18 +349,18 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(25, 98);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(88, 17);
+            this.label13.Size = new System.Drawing.Size(79, 17);
             this.label13.TabIndex = 55;
-            this.label13.Text = "ID Empleado";
+            this.label13.Text = "ID Profesor";
             // 
-            // txtID_Empleado
+            // txtID_Profesor
             // 
-            this.txtID_Empleado.Enabled = false;
-            this.txtID_Empleado.Location = new System.Drawing.Point(143, 95);
-            this.txtID_Empleado.Mask = "999999999";
-            this.txtID_Empleado.Name = "txtID_Empleado";
-            this.txtID_Empleado.Size = new System.Drawing.Size(183, 22);
-            this.txtID_Empleado.TabIndex = 54;
+            this.txtID_Profesor.Enabled = false;
+            this.txtID_Profesor.Location = new System.Drawing.Point(143, 95);
+            this.txtID_Profesor.Mask = "999999999";
+            this.txtID_Profesor.Name = "txtID_Profesor";
+            this.txtID_Profesor.Size = new System.Drawing.Size(183, 22);
+            this.txtID_Profesor.TabIndex = 54;
             // 
             // txtNombre
             // 
@@ -494,35 +515,6 @@
             this.label8.TabIndex = 45;
             this.label8.Text = "Cédula";
             // 
-            // dbunapecDataSet1
-            // 
-            this.dbunapecDataSet1.DataSetName = "DBUNAPECDataSet";
-            this.dbunapecDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNuevo.BackgroundImage")));
-            this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNuevo.Location = new System.Drawing.Point(8, 11);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(57, 46);
-            this.btnNuevo.TabIndex = 0;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
-            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar.Location = new System.Drawing.Point(8, 11);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(57, 46);
-            this.btnBuscar.TabIndex = 0;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // btnBuscarUsuario
             // 
             this.btnBuscarUsuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscarUsuario.BackgroundImage")));
@@ -535,18 +527,16 @@
             this.btnBuscarUsuario.UseVisualStyleBackColor = true;
             this.btnBuscarUsuario.Click += new System.EventHandler(this.btnBuscarUsuario_Click);
             // 
-            // FrmEmpleados
+            // FrmProfesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 586);
-            this.Controls.Add(this.tabControlEmpleado);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmEmpleados";
-            this.Text = "FrmEmpleados";
-            this.Activated += new System.EventHandler(this.FrmEmpleados_Activated);
-            this.Load += new System.EventHandler(this.FrmEmpleados_Load);
-            this.tabControlEmpleado.ResumeLayout(false);
+            this.ClientSize = new System.Drawing.Size(1012, 623);
+            this.Controls.Add(this.tabControlProfesor);
+            this.Name = "FrmProfesor";
+            this.Text = "FrmProfesor";
+            this.Load += new System.EventHandler(this.FrmProfesor_Load);
+            this.tabControlProfesor.ResumeLayout(false);
             this.tabPageConsulta.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -555,21 +545,20 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgdEmpleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgdProfesor)).EndInit();
             this.tabPageMantenimiento.ResumeLayout(false);
             this.tabPageMantenimiento.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgdUsuario)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dbunapecDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControlEmpleado;
+        private System.Windows.Forms.TabControl tabControlProfesor;
         private System.Windows.Forms.TabPage tabPageConsulta;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbxCriterio;
@@ -582,35 +571,34 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgdEmpleado;
+        private System.Windows.Forms.DataGridView dgdProfesor;
         private System.Windows.Forms.TabPage tabPageMantenimiento;
-        private System.Windows.Forms.Label lbTitulo;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox txtNo_Carnet;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cbxEstado;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dgdUsuario;
         private System.Windows.Forms.ComboBox cbxCriterioUsuario;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.TextBox txtBuscarUsuario;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.MaskedTextBox txtID_Profesor;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.MaskedTextBox txtID_Usuario;
         private System.Windows.Forms.ComboBox cbxTanda;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MaskedTextBox txtNo_Carnet;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbxEstado;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnBuscarUsuario;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.MaskedTextBox txtID_Empleado;
-        private System.Windows.Forms.TextBox txtContraseña;
-        private DBUNAPECDataSet dbunapecDataSet1;
-        private System.Windows.Forms.DataGridView dgdUsuario;
     }
 }

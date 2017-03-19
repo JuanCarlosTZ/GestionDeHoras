@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,18 +10,17 @@ using System.Windows.Forms;
 
 namespace GestionDeHoras
 {
-    public partial class FrmEmpleados : Form
+    public partial class FrmEstudiante : Form
     {
+
+
+
         BaseDeDatos bd = new BaseDeDatos();
-        SqlConnection ocon;
         DataTable odt;
-        string FrmTipo = "Empleado";
+        string FrmTipo = "Estudiante";
         string operacion = "N";
-        
-        public FrmEmpleados()
-        {
-            InitializeComponent();
-        }
+
+
 
 
         public void CargarEstado()
@@ -77,51 +75,10 @@ namespace GestionDeHoras
 
         }
 
-        private void FrmEmpleados_Load(object sender, EventArgs e)
-        {
-            if (bd.conectar())
-            {
-                CargarEstado();
-                CargarTanda();
-                cargarCriterio();
-                consultarEmpleado();
-                cargarCriterioUsuario();
-                consultarUsuario();
-            }
-
-        }
-
-        private void FrmEmpleados_Activated(object sender, EventArgs e)
-        {
-            //consultarEmpleados();
-        }
 
 
-        private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow row = this.dgdEmpleado.Rows[0];
-            txtID_Empleado.Text = row.Cells[0].Value.ToString();
-            string idUsuario = row.Cells[1].Value.ToString();
-            txtID_Usuario.Text = idUsuario;
+   
 
-            odt = bd.buscar("Usuario","ID", idUsuario);
-            string valorNombre = odt.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Nombre")).ToList().First();
-
-            txtNombre.Text = valorNombre;
-
-            txtNo_Carnet.Text = row.Cells[2].Value.ToString();
-            txtContraseña.Text = row.Cells[3].Value.ToString();
-            cbxTanda.Text = row.Cells[4].Value.ToString();
-            cbxEstado.Text= row.Cells[5].Value.ToString();
-
-            operacion = "E";
-            lbTitulo.Text = "Editar";
-            btnAgregar.Text = "&Actualizar";
-            btnLimpiar.Text = "&Cancelar";
-
-            tabControlEmpleado.SelectedTab = tabControlEmpleado.TabPages[1];
-            
-        }
 
         public void cargarCriterio()
         {
@@ -160,7 +117,7 @@ namespace GestionDeHoras
         }
 
 
-        public void consultarEmpleado()
+        public void consultarEstudiante()
         {
 
             if (cbxCriterio.Text != "" && txtBuscar.Text != "")
@@ -171,8 +128,8 @@ namespace GestionDeHoras
             {
                 odt = bd.consultar(FrmTipo);
             }
-            dgdEmpleado.DataSource = odt;
-            dgdEmpleado.Refresh();
+            dgdEstudiante.DataSource = odt;
+            dgdEstudiante.Refresh();
         }
 
 
@@ -180,7 +137,7 @@ namespace GestionDeHoras
         {
             txtID_Usuario.Clear();
             txtNombre.Clear();
-            txtID_Empleado.Clear();
+            txtID_Estudiante.Clear();
             txtNo_Carnet.Clear();
             txtContraseña.Text = "";
             cbxTanda.Text = "";
@@ -204,22 +161,22 @@ namespace GestionDeHoras
         {
             string SQL;
 
-            SQL = "update  Empleado   ";
+            SQL = "update  Estudiante   ";
             SQL += "  set ";
             SQL += " ID_Usuario =  '" + txtID_Usuario.Text + "'";
             SQL += ", No_Carnet =  '" + txtNo_Carnet.Text + "'";
             SQL += ", Contrasena  =  '" + txtContraseña.Text + "' ";
-            SQL += ", Tanda_Laboral  =  '" + cbxTanda.Text + "' ";
+            SQL += ", Tanda  =  '" + cbxTanda.Text + "' ";
             SQL += ", Estado  =  '" + cbxEstado.Text + "' ";
             SQL += ", Fecha_Actualizado  =  '" + DateTime.Now + "' ";
             SQL += ", Actualizado_Por  =  '' ";
-            SQL += " where ID = '" + txtID_Empleado.Text + "'";
+            SQL += " where ID = '" + txtID_Estudiante.Text + "'";
 
             if (bd.actualizar(SQL))
             {
                 LimpiarRegistros();
-                tabControlEmpleado.SelectedTab = tabControlEmpleado.TabPages[0];
-                consultarEmpleado();
+                tabControlEstudiante.SelectedTab = tabControlEstudiante.TabPages[0];
+                consultarEstudiante();
             }
         }
 
@@ -229,11 +186,11 @@ namespace GestionDeHoras
             bool noCarnetExistente = bd.buscar(FrmTipo, "No_Carnet", txtNo_Carnet.Text).Rows.OfType<DataRow>().Select(dr => dr.Field<string>("No_Carnet")).ToList().Contains(txtNo_Carnet.Text);
 
             bool idUsuarioExistente = bd.buscar(FrmTipo, "ID_Usuario", txtID_Usuario.Text).Rows.OfType<DataRow>().Select(dr => dr.Field<int>("ID_Usuario")).ToList().Contains(Int32.Parse(txtID_Usuario.Text));
-               
-            if ( txtID_Usuario.Text != "" && txtNo_Carnet.Text != "" && txtContraseña.Text != "" && cbxTanda.Text != "" && cbxEstado.Text != "" && !idUsuarioExistente && !noCarnetExistente)
+
+            if (txtID_Usuario.Text != "" && txtNo_Carnet.Text != "" && txtContraseña.Text != "" && cbxTanda.Text != "" && cbxEstado.Text != "" && !idUsuarioExistente && !noCarnetExistente)
             {
-               
-                string SQL = " Insert into Empleado (ID_Usuario, No_Carnet, Contrasena,Tanda_Laboral, Estado, Fecha_Creado, Creado_Por, Fecha_Actualizado, Actualizado_Por) values ( ";
+
+                string SQL = " Insert into Estudiante (ID_Usuario, No_Carnet, Contrasena,Tanda , Estado, Fecha_Creado, Creado_Por, Fecha_Actualizado, Actualizado_Por) values ( ";
 
                 SQL += "'" + txtID_Usuario.Text + "' ";
                 SQL += ",'" + txtNo_Carnet.Text + "' ";
@@ -249,8 +206,8 @@ namespace GestionDeHoras
                 if (bd.insertar(SQL))
                 {
                     LimpiarRegistros();
-                    tabControlEmpleado.SelectedTab = tabControlEmpleado.TabPages[0];
-                    consultarEmpleado();
+                    tabControlEstudiante.SelectedTab = tabControlEstudiante.TabPages[0];
+                    consultarEstudiante();
                 }
 
             }
@@ -263,7 +220,7 @@ namespace GestionDeHoras
                 }
                 else if (idUsuarioExistente || noCarnetExistente)
                 {
-                    MessageBox.Show("Empleado existente");
+                    MessageBox.Show("Estudiante existente");
                 }
 
             }
@@ -290,15 +247,51 @@ namespace GestionDeHoras
 
 
 
+
+
+
+
+
+
+        public FrmEstudiante()
+        {
+            InitializeComponent();
+        }
+
+        private void dgdEstudiante_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = this.dgdEstudiante.Rows[0];
+            txtID_Estudiante.Text = row.Cells[0].Value.ToString();
+            string idUsuario = row.Cells[1].Value.ToString();
+            txtID_Usuario.Text = idUsuario;
+
+            odt = bd.buscar("Usuario", "ID", idUsuario);
+            string valorNombre = odt.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Nombre")).ToList().First();
+
+            txtNombre.Text = valorNombre;
+
+            txtNo_Carnet.Text = row.Cells[2].Value.ToString();
+            txtContraseña.Text = row.Cells[3].Value.ToString();
+            cbxTanda.Text = row.Cells[4].Value.ToString();
+            cbxEstado.Text = row.Cells[5].Value.ToString();
+
+            operacion = "E";
+            lbTitulo.Text = "Editar";
+            btnAgregar.Text = "&Actualizar";
+            btnLimpiar.Text = "&Cancelar";
+
+            tabControlEstudiante.SelectedTab = tabControlEstudiante.TabPages[1];
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            consultarEmpleado();
+            consultarEstudiante();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarRegistros();
-            tabControlEmpleado.SelectedTab = tabControlEmpleado.TabPages[1];
+            tabControlEstudiante.SelectedTab = tabControlEstudiante.TabPages[1];
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -323,23 +316,25 @@ namespace GestionDeHoras
             consultarUsuario();
         }
 
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgdUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             LimpiarRegistros();
             DataGridViewRow row = dgdUsuario.CurrentCell.OwningRow;
             txtID_Usuario.Text = row.Cells[0].Value.ToString();
             txtNombre.Text = row.Cells[1].Value.ToString();
-
         }
 
-        private void dgdUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void FrmEstudiante_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void dgdEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+            if (bd.conectar())
+            {
+                CargarEstado();
+                CargarTanda();
+                cargarCriterio();
+                consultarEstudiante();
+                cargarCriterioUsuario();
+                consultarUsuario();
+            }
 
         }
     }

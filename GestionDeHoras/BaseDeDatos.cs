@@ -18,7 +18,7 @@ namespace GestionDeHoras
 
         public SqlConnection getOcon() 
         {
-            ocon = new SqlConnection("Data Source=JTEJEDA;Initial Catalog=DBUNAPEC;Integrated Security=True");
+            ocon = new SqlConnection("Data Source=JTEJEDA;Initial Catalog=GESTIONDEAULA;Integrated Security=True");
             return ocon;
         }
 
