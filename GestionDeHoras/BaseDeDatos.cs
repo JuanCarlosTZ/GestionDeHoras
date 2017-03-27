@@ -74,7 +74,7 @@ namespace GestionDeHoras
                 }
                 catch (Exception error)
                 {
-                    MessageBox.Show("Error en la consulta");
+                    MessageBox.Show("Error");
                     return null;
                 }
 
@@ -165,6 +165,37 @@ namespace GestionDeHoras
 
             return true;
             
+        }
+
+
+        public bool eliminar(string tabla, string filtro)
+        {
+            if (conectar())
+            {
+
+                try
+                {
+                    string pSQL = "Delete " + tabla +" "+ filtro ;
+                    SqlCommand ocdm = new SqlCommand(pSQL, ocon);
+                    ocdm.ExecuteNonQuery();
+
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error al eliminar");
+                    return false;
+                }
+
+
+
+            }
+            else
+            {
+                return false;
+            }
+
+            return true;
+
         }
 
         public DataTable consultar(string pFrmTipo)

@@ -1,6 +1,6 @@
 ﻿namespace GestionDeHoras
 {
-    partial class FrmCampus
+    partial class FrmRol
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dBUNAPECDataSet1 = new GestionDeHoras.DBUNAPECDataSet1();
-            this.campusBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.campusTableAdapter = new GestionDeHoras.DBUNAPECDataSet1TableAdapters.CampusTableAdapter();
-            this.tableAdapterManager = new GestionDeHoras.DBUNAPECDataSet1TableAdapters.TableAdapterManager();
-            this.edificiosTableAdapter = new GestionDeHoras.DBUNAPECDataSet1TableAdapters.EdificiosTableAdapter();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dgdCampus = new System.Windows.Forms.DataGridView();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.cbxCriterio = new System.Windows.Forms.ComboBox();
-            this.tabControlCampus = new System.Windows.Forms.TabControl();
+            this.tabControlRol = new System.Windows.Forms.TabControl();
             this.tabPageConsulta = new System.Windows.Forms.TabPage();
+            this.cbxCriterio = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dgdRol = new System.Windows.Forms.DataGridView();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.tabPageMantenimiento = new System.Windows.Forms.TabPage();
             this.cbxEstado = new System.Windows.Forms.ComboBox();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -56,119 +50,22 @@
             this.txtIdentificador = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.fKEdificiosCampusBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dBUNAPECDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.campusBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgdCampus)).BeginInit();
-            this.tabControlCampus.SuspendLayout();
+            this.tabControlRol.SuspendLayout();
             this.tabPageConsulta.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgdRol)).BeginInit();
             this.tabPageMantenimiento.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fKEdificiosCampusBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dBUNAPECDataSet1
+            // tabControlRol
             // 
-            this.dBUNAPECDataSet1.DataSetName = "DBUNAPECDataSet1";
-            this.dBUNAPECDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // campusBindingSource
-            // 
-            this.campusBindingSource.DataMember = "Campus";
-            this.campusBindingSource.DataSource = this.dBUNAPECDataSet1;
-            // 
-            // campusTableAdapter
-            // 
-            this.campusTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AulasTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CampusTableAdapter = this.campusTableAdapter;
-            this.tableAdapterManager.EdificiosTableAdapter = this.edificiosTableAdapter;
-            this.tableAdapterManager.EmpleadoTableAdapter = null;
-            this.tableAdapterManager.ReservacionesTableAdapter = null;
-            this.tableAdapterManager.Tipo_AulasTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = GestionDeHoras.DBUNAPECDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsuarioTableAdapter = null;
-            // 
-            // edificiosTableAdapter
-            // 
-            this.edificiosTableAdapter.ClearBeforeFill = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dgdCampus);
-            this.panel1.Location = new System.Drawing.Point(45, 101);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(568, 325);
-            this.panel1.TabIndex = 0;
-            // 
-            // dgdCampus
-            // 
-            this.dgdCampus.AllowUserToAddRows = false;
-            this.dgdCampus.AllowUserToDeleteRows = false;
-            this.dgdCampus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgdCampus.Location = new System.Drawing.Point(4, 27);
-            this.dgdCampus.Margin = new System.Windows.Forms.Padding(4);
-            this.dgdCampus.Name = "dgdCampus";
-            this.dgdCampus.ReadOnly = true;
-            this.dgdCampus.Size = new System.Drawing.Size(560, 271);
-            this.dgdCampus.TabIndex = 1;
-            this.dgdCampus.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdCampus_CellContentClick);
-            this.dgdCampus.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdCampus_CellContentDoubleClick);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Location = new System.Drawing.Point(538, 22);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 57);
-            this.btnNuevo.TabIndex = 1;
-            this.btnNuevo.Text = "Agregar";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(436, 22);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 57);
-            this.btnBuscar.TabIndex = 3;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(188, 39);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(225, 22);
-            this.txtBuscar.TabIndex = 4;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            // 
-            // cbxCriterio
-            // 
-            this.cbxCriterio.FormattingEnabled = true;
-            this.cbxCriterio.Location = new System.Drawing.Point(47, 38);
-            this.cbxCriterio.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxCriterio.Name = "cbxCriterio";
-            this.cbxCriterio.Size = new System.Drawing.Size(132, 24);
-            this.cbxCriterio.TabIndex = 5;
-            // 
-            // tabControlCampus
-            // 
-            this.tabControlCampus.Controls.Add(this.tabPageConsulta);
-            this.tabControlCampus.Controls.Add(this.tabPageMantenimiento);
-            this.tabControlCampus.Location = new System.Drawing.Point(34, 30);
-            this.tabControlCampus.Name = "tabControlCampus";
-            this.tabControlCampus.SelectedIndex = 0;
-            this.tabControlCampus.Size = new System.Drawing.Size(706, 483);
-            this.tabControlCampus.TabIndex = 6;
+            this.tabControlRol.Controls.Add(this.tabPageConsulta);
+            this.tabControlRol.Controls.Add(this.tabPageMantenimiento);
+            this.tabControlRol.Location = new System.Drawing.Point(54, 47);
+            this.tabControlRol.Name = "tabControlRol";
+            this.tabControlRol.SelectedIndex = 0;
+            this.tabControlRol.Size = new System.Drawing.Size(706, 483);
+            this.tabControlRol.TabIndex = 7;
             // 
             // tabPageConsulta
             // 
@@ -184,6 +81,66 @@
             this.tabPageConsulta.TabIndex = 0;
             this.tabPageConsulta.Text = "Consulta";
             this.tabPageConsulta.UseVisualStyleBackColor = true;
+            // 
+            // cbxCriterio
+            // 
+            this.cbxCriterio.FormattingEnabled = true;
+            this.cbxCriterio.Location = new System.Drawing.Point(47, 38);
+            this.cbxCriterio.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxCriterio.Name = "cbxCriterio";
+            this.cbxCriterio.Size = new System.Drawing.Size(132, 24);
+            this.cbxCriterio.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dgdRol);
+            this.panel1.Location = new System.Drawing.Point(45, 101);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(568, 325);
+            this.panel1.TabIndex = 0;
+            // 
+            // dgdRol
+            // 
+            this.dgdRol.AllowUserToAddRows = false;
+            this.dgdRol.AllowUserToDeleteRows = false;
+            this.dgdRol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgdRol.Location = new System.Drawing.Point(4, 27);
+            this.dgdRol.Margin = new System.Windows.Forms.Padding(4);
+            this.dgdRol.Name = "dgdRol";
+            this.dgdRol.ReadOnly = true;
+            this.dgdRol.Size = new System.Drawing.Size(560, 271);
+            this.dgdRol.TabIndex = 1;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(538, 22);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 57);
+            this.btnNuevo.TabIndex = 1;
+            this.btnNuevo.Text = "Agregar";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(188, 39);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(225, 22);
+            this.txtBuscar.TabIndex = 4;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(436, 22);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 57);
+            this.btnBuscar.TabIndex = 3;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // tabPageMantenimiento
             // 
@@ -207,7 +164,6 @@
             this.tabPageMantenimiento.TabIndex = 1;
             this.tabPageMantenimiento.Text = "Mantenimiento";
             this.tabPageMantenimiento.UseVisualStyleBackColor = true;
-            this.tabPageMantenimiento.Click += new System.EventHandler(this.tabPageMantenimiento_Click);
             // 
             // cbxEstado
             // 
@@ -248,7 +204,7 @@
             this.btnAgregar.TabIndex = 22;
             this.btnAgregar.Text = "&Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgragar_Click);
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label4
             // 
@@ -328,51 +284,36 @@
             this.panel3.Size = new System.Drawing.Size(365, 49);
             this.panel3.TabIndex = 27;
             // 
-            // fKEdificiosCampusBindingSource
-            // 
-            this.fKEdificiosCampusBindingSource.DataMember = "FK_Edificios_Campus";
-            this.fKEdificiosCampusBindingSource.DataSource = this.campusBindingSource;
-            // 
-            // FrmCampus
+            // FrmRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 525);
-            this.Controls.Add(this.tabControlCampus);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FrmCampus";
-            this.Text = "Campus";
-            this.Activated += new System.EventHandler(this.FrmCampus_Activated);
-            this.Load += new System.EventHandler(this.FrmCampus_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dBUNAPECDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.campusBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgdCampus)).EndInit();
-            this.tabControlCampus.ResumeLayout(false);
+            this.ClientSize = new System.Drawing.Size(854, 571);
+            this.Controls.Add(this.tabControlRol);
+            this.Name = "FrmRol";
+            this.Text = "FrmRol";
+            this.Load += new System.EventHandler(this.FrmRol_Load);
+            this.tabControlRol.ResumeLayout(false);
             this.tabPageConsulta.ResumeLayout(false);
             this.tabPageConsulta.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgdRol)).EndInit();
             this.tabPageMantenimiento.ResumeLayout(false);
             this.tabPageMantenimiento.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fKEdificiosCampusBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DBUNAPECDataSet1 dBUNAPECDataSet1;
-        private System.Windows.Forms.BindingSource campusBindingSource;
-        private DBUNAPECDataSet1TableAdapters.CampusTableAdapter campusTableAdapter;
-        private DBUNAPECDataSet1TableAdapters.TableAdapterManager tableAdapterManager;
-        private DBUNAPECDataSet1TableAdapters.EdificiosTableAdapter edificiosTableAdapter;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.BindingSource fKEdificiosCampusBindingSource;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.ComboBox cbxCriterio;
-        private System.Windows.Forms.TabControl tabControlCampus;
+        private System.Windows.Forms.TabControl tabControlRol;
         private System.Windows.Forms.TabPage tabPageConsulta;
+        private System.Windows.Forms.ComboBox cbxCriterio;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dgdRol;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TabPage tabPageMantenimiento;
         private System.Windows.Forms.ComboBox cbxEstado;
         private System.Windows.Forms.Label lbTitulo;
@@ -387,6 +328,5 @@
         private System.Windows.Forms.TextBox txtIdentificador;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dgdCampus;
     }
 }

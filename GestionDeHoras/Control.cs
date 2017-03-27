@@ -80,5 +80,30 @@ namespace GestionDeHoras
         {
             new FrmProfesor().Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new FrmTipoAula().Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            new FrmAula().Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            new FrmRol().Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            new FrmPermisoRol().Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            new FrmUsuarioRol().Show();
+        }
     }
 }

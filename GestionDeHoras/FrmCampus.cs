@@ -20,13 +20,6 @@ namespace GestionDeHoras
         string operacion = "N";
         
 
-
-        public string VerFrmTipo()
-        {
-            return FrmTipo;
-        }
-
-
         public void consultarCampus()
         {
 
@@ -251,5 +244,12 @@ namespace GestionDeHoras
         {
 
         }
+
+        private void dgdCampus_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
     }
 }

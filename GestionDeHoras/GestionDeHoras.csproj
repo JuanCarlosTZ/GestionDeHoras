@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aulas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Aulas.Designer.cs">
-      <DependentUpon>Aulas.cs</DependentUpon>
-    </Compile>
     <Compile Include="BaseDeDatos.cs" />
     <Compile Include="Control.cs">
       <SubType>Form</SubType>
@@ -68,6 +62,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBUNAPECDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAula.Designer.cs">
+      <DependentUpon>FrmAula.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCampus.cs">
       <SubType>Form</SubType>
@@ -93,17 +93,53 @@
     <Compile Include="FrmEstudiante.Designer.cs">
       <DependentUpon>FrmEstudiante.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPermisoRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPermisoRol.Designer.cs">
+      <DependentUpon>FrmPermisoRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmProfesor.Designer.cs">
       <DependentUpon>FrmProfesor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRol.Designer.cs">
+      <DependentUpon>FrmRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRolUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRolUsuario.Designer.cs">
+      <DependentUpon>FrmRolUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSolicitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSolicitudes.Designer.cs">
+      <DependentUpon>FrmSolicitudes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTanda.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTanda.Designer.cs">
       <DependentUpon>FrmTanda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTipoAula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTipoAula.Designer.cs">
+      <DependentUpon>FrmTipoAula.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,11 +150,11 @@
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Validar.cs" />
-    <EmbeddedResource Include="Aulas.resx">
-      <DependentUpon>Aulas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Control.resx">
       <DependentUpon>Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAula.resx">
+      <DependentUpon>FrmAula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCampus.resx">
       <DependentUpon>FrmCampus.cs</DependentUpon>
@@ -132,11 +168,29 @@
     <EmbeddedResource Include="FrmEstudiante.resx">
       <DependentUpon>FrmEstudiante.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPermisoRol.resx">
+      <DependentUpon>FrmPermisoRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProfesor.resx">
       <DependentUpon>FrmProfesor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmRol.resx">
+      <DependentUpon>FrmRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRolUsuario.resx">
+      <DependentUpon>FrmRolUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSolicitudes.resx">
+      <DependentUpon>FrmSolicitudes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTanda.resx">
       <DependentUpon>FrmTanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTipoAula.resx">
+      <DependentUpon>FrmTipoAula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

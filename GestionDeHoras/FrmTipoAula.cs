@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace GestionDeHoras
 {
-    public partial class FrmTanda : Form
+    public partial class FrmTipoAula : Form
     {
+
 
         BaseDeDatos bd = new BaseDeDatos();
         DataTable odt = new DataTable();
         Validar vl = new Validar();
-        string FrmTipo = "Tanda";
+        string FrmTipo = "Tipo_Aula";
         string operacion = "N";
 
-        public void consultarTanda()
+        public void consultarTipoAula()
         {
 
             if (cbxCriterio.Text != "" && txtBuscar.Text != "")
@@ -30,8 +31,8 @@ namespace GestionDeHoras
             {
                 odt = bd.consultar(FrmTipo);
             }
-            dgdTanda.DataSource = odt;
-            dgdTanda.Refresh();
+            dgdTipoAula.DataSource = odt;
+            dgdTipoAula.Refresh();
 
         }
 
@@ -56,7 +57,7 @@ namespace GestionDeHoras
         {
             string SQL;
 
-            SQL = "update Tanda ";
+            SQL = "update Tipo_Aula ";
             SQL += " set Nombre =  '" + txtNombre.Text + "'";
             SQL += ", Descripcion =  '" + txtDescripcion.Text + "'";
             SQL += ", Fecha_Actualizado  =  '" + DateTime.Now + "'";
@@ -66,8 +67,8 @@ namespace GestionDeHoras
             if (bd.actualizar(SQL))
             {
                 LimpiarRegistros();
-                tabControlTanda.SelectedTab = tabControlTanda.TabPages[0];
-                consultarTanda();
+                tabControlTipoAula.SelectedTab = tabControlTipoAula.TabPages[0];
+                consultarTipoAula();
             }
         }
 
@@ -76,9 +77,9 @@ namespace GestionDeHoras
         {
             if (txtNombre.Text != "")
             {
-                string SQL = " Insert into Tanda ( Nombre, Descripcion, Fecha_Creado, Creado_Por, Fecha_Actualizado, Actualizado_Por) values ( ";
+                string SQL = " Insert into Tipo_Aula ( Nombre, Descripcion, Fecha_Creado, Creado_Por, Fecha_Actualizado, Actualizado_Por) values ( ";
 
-                SQL += "'" + txtNombre.Text + "'" ;
+                SQL += "'" + txtNombre.Text + "'";
                 SQL += ",'" + txtDescripcion.Text + "'";
                 SQL += ",'" + DateTime.Now + "'";
                 SQL += ",''";
@@ -89,8 +90,8 @@ namespace GestionDeHoras
                 if (bd.insertar(SQL))
                 {
                     LimpiarRegistros();
-                    tabControlTanda.SelectedTab = tabControlTanda.TabPages[0];
-                    consultarTanda();
+                    tabControlTipoAula.SelectedTab = tabControlTipoAula.TabPages[0];
+                    consultarTipoAula();
                 }
 
             }
@@ -117,36 +118,45 @@ namespace GestionDeHoras
 
         }
 
-       
 
-        public FrmTanda()
+
+
+        public FrmTipoAula()
         {
             InitializeComponent();
         }
 
-        private void FrmTanda_Load(object sender, EventArgs e)
-        {
-            if (bd.conectar())
-            {
-                cargarCriterio();
-                consultarTanda();
-            }
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            consultarTanda();
+            consultarTipoAula();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarRegistros();
-            tabControlTanda.SelectedTab = tabControlTanda.TabPages[1];
+            tabControlTipoAula.SelectedTab = tabControlTipoAula.TabPages[1];
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        private void dgdTipoAula_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            LimpiarRegistros();
+            DataGridViewRow row = dgdTipoAula.CurrentCell.OwningRow;
+            txtIdentificador.Text = row.Cells[0].Value.ToString();
+            txtNombre.Text = row.Cells[1].Value.ToString();
+            txtDescripcion.Text = row.Cells[2].Value.ToString();
+            lbTitulo.Text = "Editar";
+            operacion = "E";
+            btnAgregar.Text = "&Actualizar";
+            btnLimpiar.Text = "&Cancelar";
+            tabControlTipoAula.SelectedTab = tabControlTipoAula.TabPages[1];
+        }
+
+        private void FrmTipoAula_Load(object sender, EventArgs e)
+        {
+            if (bd.conectar())
+            {
+                cargarCriterio();
+                consultarTipoAula();
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -161,19 +171,9 @@ namespace GestionDeHoras
             }
         }
 
-        private void dgdTanda_CellDobleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = dgdTanda.CurrentCell.OwningRow;
-            txtIdentificador.Text = row.Cells[0].Value.ToString();
-            txtNombre.Text = row.Cells[1].Value.ToString();
-            txtDescripcion.Text = row.Cells[2].Value.ToString();
-            lbTitulo.Text = "Editar";
-            operacion = "E";
-            btnAgregar.Text = "&Actualizar";
-            btnLimpiar.Text = "&Cancelar";
-            tabControlTanda.SelectedTab = tabControlTanda.TabPages[1];
+            LimpiarRegistros();
         }
-
-
     }
 }
