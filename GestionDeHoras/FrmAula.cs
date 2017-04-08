@@ -73,54 +73,87 @@ namespace GestionDeHoras
 
         public void actualizar()
         {
-            string SQL;
-
-            SQL = "update Aula ";
-            SQL += " set Nombre =  '" + txtNombre.Text + "'";
-            SQL += ", Descripcion =  '" + txtDescripcion.Text + "'";
-            SQL += ", Tipo  =  '" + cbxTipo.Text + "'";
-            SQL += ", ID_Edificio  =  '" + txtID_Edificio.Text + "'";
-            SQL += ", Estado  =  '" + cbxEstado.Text + "'";
-            SQL += ", Capacidad  =  '" + nudCapacidad.Text + "'";
-            SQL += ", Fecha_Creado  =  '"+ DateTime.Now + "'";
-            SQL += ", Creado_Por  =  ''";
-            SQL += ", Fecha_Actualizado  =  '" + DateTime.Now + "'";
-            SQL += ", Actualizado_Por  =  '' ";
-            SQL += " where ID = '" + txtID_Aula.Text + "'";
-
-            if (bd.actualizar(SQL))
+            if (txtNombre.Text != "" && cbxEstado.Text != "" && nudCapacidad.Value >= 0 && cbxTipo.Text != "" && txtID_Edificio.Text != "")
             {
-                LimpiarRegistros();
-                tabControlAula.SelectedTab = tabControlAula.TabPages[0];
-                consultarAula();
+                string SQL;
+
+                SQL = "update Aula ";
+                SQL += " set Nombre =  '" + txtNombre.Text + "'";
+                SQL += ", Descripcion =  '" + txtDescripcion.Text + "'";
+                SQL += ", Tipo  =  '" + cbxTipo.Text + "'";
+                SQL += ", ID_Edificio  =  '" + txtID_Edificio.Text + "'";
+                SQL += ", Estado  =  '" + cbxEstado.Text + "'";
+                SQL += ", Fecha_Actualizado  =  '" + DateTime.Now + "'";
+                SQL += ", Actualizado_Por  =  '" + bd.getIdUsuario() + "'";
+                SQL += " where ID = '" + txtID_Aula.Text + "'";
+
+                bd.iniciaTransaction();
+
+                if (bd.actualizar(SQL))
+                {
+                    string idAula = bd.getIdAulaUltima();
+                    SQL = " UPDATE DETALLE_AULA (ID_Aula, Capacidad_Reservacion, Cantidad_Reservacion) VALUES ( ";
+
+                    SQL = "update DETALLE_AULA ";
+                    SQL += " set Capacidad_Reservacion =  '" + nudCapacidad.Text + "'";
+                    SQL += " where ID_Aula = '" + txtID_Aula.Text + "'";
+
+                    if (bd.actualizar(SQL))
+                    {
+                        LimpiarRegistros();
+                        tabControlAula.SelectedTab = tabControlAula.TabPages[0];
+                        consultarAula();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Faltan campos por completar");
             }
         }
 
 
         public void agregar()
         {
-            if (txtNombre.Text != "" && cbxEstado.Text != "")
+            if (txtNombre.Text != "" && cbxEstado.Text != "" && nudCapacidad.Value >= 0 && cbxTipo.Text != "" && txtID_Edificio.Text != "")
             {
-                string SQL = " Insert into Aula ( Nombre, Descripcion, Tipo, ID_Edificio, Estado, Capacidad, Fecha_Creado, Creado_Por, Fecha_Actualizado, Actualizado_Por) values ( ";
+
+                
+
+                string creador = bd.getIdUsuario();
+                string SQL = " Insert into Aula ( Nombre, Descripcion, Tipo, ID_Edificio, Estado, Fecha_Creado, Creado_Por, Fecha_Actualizado, Actualizado_Por) values ( ";
 
                 SQL += "'" + txtNombre.Text + "'";
                 SQL += ",'" + txtDescripcion.Text + "'";
                 SQL += ",'" + cbxTipo.Text + "'";
                 SQL += ",'" + txtID_Edificio.Text + "'" ;
                 SQL += ",'" + cbxEstado.Text + "'";
-                SQL += ",'" + nudCapacidad.Text + "'";
                 SQL += ",'" + DateTime.Now + "'";
-                SQL += ",''";
+                SQL += ",'" + creador + "'";
                 SQL += ",'" + DateTime.Now + "'";
-                SQL += ",''";
+                SQL += ",'" + creador + "'";
                 SQL += ")";
 
+                bd.iniciaTransaction();
                 if (bd.insertar(SQL))
                 {
-                    LimpiarRegistros();
-                    tabControlAula.SelectedTab = tabControlAula.TabPages[0];
-                    consultarAula();
+                    string idAula = bd.getIdAulaUltima();
+                    SQL = " INSERT INTO DETALLE_AULA (ID_Aula, Capacidad_Reservacion, Cantidad_Reservacion) VALUES ( ";
+                    SQL += "'" + idAula + "'";
+                    SQL += ",'" + nudCapacidad.Text + "'";
+                    SQL += ",'0'";
+                    SQL += ")";
+                    if (bd.insertar(SQL))
+                    {
+                        bd.guardarTransaction();
+
+                        LimpiarRegistros();
+                        tabControlAula.SelectedTab = tabControlAula.TabPages[0];
+                        consultarAula();
+                    }
+                    else { bd.devolverTransaction(); }
                 }
+                else { bd.devolverTransaction(); }
 
             }
             else

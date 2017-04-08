@@ -82,5 +82,11 @@ namespace GestionDeHoras
         {
             IniciarSesion();
         }
+
+        private void cbxCriterioAcceso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+        }
     }
 }

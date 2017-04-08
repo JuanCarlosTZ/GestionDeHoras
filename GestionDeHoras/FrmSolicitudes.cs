@@ -21,16 +21,26 @@ namespace GestionDeHoras
         public void consultarMiSolicitud()
         {
 
+            
+            string idUsuario = bd.getIdUsuario();
+            odt = bd.consultar(FrmTipo, "ID_Usuario", idUsuario);
+            
+            dgdMiSolicitud.DataSource = odt;
+            dgdMiSolicitud.Refresh();
+
+        }
+
+
+        public void consultarTodaSolicitud()
+        {
+
             if (cbxCriterioMiSolicitud.Text != "" && txtValorMiSolicitud.Text != "")
             {
                 odt = bd.consultar(FrmTipo, cbxCriterioMiSolicitud.Text, txtValorMiSolicitud.Text);
             }
             else
             {
-                string SQLUsuario = "Select ID_Usuario from " + Program.getAcceso() + " where No_Carnet = '" + Program.getNo_Carnet() + "' ";
-                string idUsuario = bd.ejecutarSQL(SQLUsuario).Rows.OfType<DataRow>().Select(dr => dr.Field<int>("ID_Usuario")).ToList().First().ToString();
-
-                odt = bd.consultar(FrmTipo, "ID_Usuario", idUsuario);
+                odt = bd.consultar(FrmTipo);
             }
             dgdMiSolicitud.DataSource = odt;
             dgdMiSolicitud.Refresh();

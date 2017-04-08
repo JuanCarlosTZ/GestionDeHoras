@@ -116,6 +116,7 @@
             this.dgdEdificio.Size = new System.Drawing.Size(568, 271);
             this.dgdEdificio.TabIndex = 1;
             this.dgdEdificio.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdEdificio_CellContentDoubleClick);
+            this.dgdEdificio.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdEdificio_CellContentDoubleClick);
             // 
             // btnNuevo
             // 

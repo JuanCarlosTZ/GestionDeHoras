@@ -53,11 +53,11 @@ namespace GestionDeHoras
                     Application.Run(new FrmSolicitudes());
                     break;
                 default:
-                    MessageBox.Show("No entró");
+                    MessageBox.Show("Acceso denegado");
                     break;
             }
-
             Application.Run(new c_reservaciones());
+
 
 
 

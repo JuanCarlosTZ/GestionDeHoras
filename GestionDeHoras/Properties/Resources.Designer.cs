@@ -63,6 +63,16 @@ namespace GestionDeHoras.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _14435003726_1dd7a23465_o {
+            get {
+                object obj = ResourceManager.GetObject("14435003726_1dd7a23465_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Campus {
             get {
                 object obj = ResourceManager.GetObject("Campus", resourceCulture);
@@ -76,6 +86,26 @@ namespace GestionDeHoras.Properties {
         internal static System.Drawing.Bitmap Campus1 {
             get {
                 object obj = ResourceManager.GetObject("Campus1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hoja_de_vida {
+            get {
+                object obj = ResourceManager.GetObject("hoja-de-vida", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logEmp2 {
+            get {
+                object obj = ResourceManager.GetObject("logEmp2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

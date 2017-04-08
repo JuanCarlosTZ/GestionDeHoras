@@ -14,6 +14,7 @@ namespace GestionDeHoras
         public SqlConnection ocon { get; set; }
         SqlDataAdapter oda;
         DataTable odt;
+        SqlTransaction transaction;
 
 
         public SqlConnection getOcon() 
@@ -211,6 +212,41 @@ namespace GestionDeHoras
            
             return ejecutarSQL(SQL);
         }
+
+        public string getIdAulaUltima()
+        {
+            string subSQL = "select max(id) as ID from aula";
+            odt = ejecutarSQL(subSQL);
+            string idAula = odt.Rows.OfType<DataRow>().Select(dr => dr.Field<int>("ID")).ToList().First().ToString();
+            return idAula;
+        }
+
+
+        public string getIdUsuario()
+        {
+            string ACCESO = Program.getAcceso();
+            string No_Carnet = Program.getNo_Carnet();
+            string xSQL = " select ID_Usuario from " + ACCESO + " where No_Carnet =  '" + No_Carnet + "' ";
+            odt = ejecutarSQL(xSQL);
+            string idUsuario = odt.Rows.OfType<DataRow>().Select(dr => dr.Field<int>("ID_Usuario")).ToList().First().ToString();
+            return idUsuario;
+        }
+
+        public void iniciaTransaction()
+        {
+            transaction = ocon.BeginTransaction();
+        }
+
+        public void guardarTransaction()
+        {
+            transaction.Commit();
+        }
+
+        public void devolverTransaction()
+        {
+            transaction.Rollback();
+        }
+
 
         public bool conectar()
         {

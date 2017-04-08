@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCampus));
             this.dBUNAPECDataSet1 = new GestionDeHoras.DBUNAPECDataSet1();
             this.campusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.campusTableAdapter = new GestionDeHoras.DBUNAPECDataSet1TableAdapters.CampusTableAdapter();
@@ -112,17 +113,18 @@
             this.dgdCampus.AllowUserToDeleteRows = false;
             this.dgdCampus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgdCampus.Location = new System.Drawing.Point(4, 27);
-            this.dgdCampus.Margin = new System.Windows.Forms.Padding(4);
+            this.dgdCampus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgdCampus.Name = "dgdCampus";
             this.dgdCampus.ReadOnly = true;
             this.dgdCampus.Size = new System.Drawing.Size(560, 271);
             this.dgdCampus.TabIndex = 1;
             this.dgdCampus.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdCampus_CellContentClick);
             this.dgdCampus.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdCampus_CellContentDoubleClick);
+            this.dgdCampus.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdCampus_CellContentDoubleClick);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(538, 22);
+            this.btnNuevo.Location = new System.Drawing.Point(539, 22);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 57);
@@ -145,7 +147,7 @@
             // txtBuscar
             // 
             this.txtBuscar.Location = new System.Drawing.Point(188, 39);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(225, 22);
             this.txtBuscar.TabIndex = 4;
@@ -155,7 +157,7 @@
             // 
             this.cbxCriterio.FormattingEnabled = true;
             this.cbxCriterio.Location = new System.Drawing.Point(47, 38);
-            this.cbxCriterio.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxCriterio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxCriterio.Name = "cbxCriterio";
             this.cbxCriterio.Size = new System.Drawing.Size(132, 24);
             this.cbxCriterio.TabIndex = 5;
@@ -164,26 +166,28 @@
             // 
             this.tabControlCampus.Controls.Add(this.tabPageConsulta);
             this.tabControlCampus.Controls.Add(this.tabPageMantenimiento);
-            this.tabControlCampus.Location = new System.Drawing.Point(34, 30);
+            this.tabControlCampus.Location = new System.Drawing.Point(35, 30);
+            this.tabControlCampus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlCampus.Name = "tabControlCampus";
             this.tabControlCampus.SelectedIndex = 0;
-            this.tabControlCampus.Size = new System.Drawing.Size(706, 483);
+            this.tabControlCampus.Size = new System.Drawing.Size(707, 482);
             this.tabControlCampus.TabIndex = 6;
             // 
             // tabPageConsulta
             // 
+            this.tabPageConsulta.BackColor = System.Drawing.Color.Transparent;
             this.tabPageConsulta.Controls.Add(this.cbxCriterio);
             this.tabPageConsulta.Controls.Add(this.panel1);
             this.tabPageConsulta.Controls.Add(this.btnNuevo);
             this.tabPageConsulta.Controls.Add(this.txtBuscar);
             this.tabPageConsulta.Controls.Add(this.btnBuscar);
             this.tabPageConsulta.Location = new System.Drawing.Point(4, 25);
+            this.tabPageConsulta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageConsulta.Name = "tabPageConsulta";
-            this.tabPageConsulta.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConsulta.Size = new System.Drawing.Size(698, 454);
+            this.tabPageConsulta.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageConsulta.Size = new System.Drawing.Size(699, 453);
             this.tabPageConsulta.TabIndex = 0;
             this.tabPageConsulta.Text = "Consulta";
-            this.tabPageConsulta.UseVisualStyleBackColor = true;
             // 
             // tabPageMantenimiento
             // 
@@ -201,9 +205,10 @@
             this.tabPageMantenimiento.Controls.Add(this.panel2);
             this.tabPageMantenimiento.Controls.Add(this.panel3);
             this.tabPageMantenimiento.Location = new System.Drawing.Point(4, 25);
+            this.tabPageMantenimiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageMantenimiento.Name = "tabPageMantenimiento";
-            this.tabPageMantenimiento.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMantenimiento.Size = new System.Drawing.Size(698, 454);
+            this.tabPageMantenimiento.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageMantenimiento.Size = new System.Drawing.Size(699, 453);
             this.tabPageMantenimiento.TabIndex = 1;
             this.tabPageMantenimiento.Text = "Mantenimiento";
             this.tabPageMantenimiento.UseVisualStyleBackColor = true;
@@ -213,7 +218,7 @@
             // 
             this.cbxEstado.FormattingEnabled = true;
             this.cbxEstado.Location = new System.Drawing.Point(205, 233);
-            this.cbxEstado.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxEstado.Name = "cbxEstado";
             this.cbxEstado.Size = new System.Drawing.Size(207, 24);
             this.cbxEstado.TabIndex = 25;
@@ -222,7 +227,7 @@
             // 
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitulo.Location = new System.Drawing.Point(198, 53);
+            this.lbTitulo.Location = new System.Drawing.Point(197, 53);
             this.lbTitulo.Name = "lbTitulo";
             this.lbTitulo.Size = new System.Drawing.Size(108, 34);
             this.lbTitulo.TabIndex = 24;
@@ -315,7 +320,7 @@
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Location = new System.Drawing.Point(85, 102);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(365, 214);
             this.panel2.TabIndex = 26;
@@ -323,7 +328,7 @@
             // panel3
             // 
             this.panel3.Location = new System.Drawing.Point(85, 334);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(365, 49);
             this.panel3.TabIndex = 27;
@@ -337,8 +342,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 525);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::GestionDeHoras.Properties.Resources._14435003726_1dd7a23465_o;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(785, 526);
             this.Controls.Add(this.tabControlCampus);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmCampus";
             this.Text = "Campus";
