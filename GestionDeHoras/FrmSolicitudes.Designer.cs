@@ -31,7 +31,7 @@
             this.tabControlSolicitud = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscarMiSolicitud = new System.Windows.Forms.Button();
             this.dgdMiSolicitud = new System.Windows.Forms.DataGridView();
             this.txtValorMiSolicitud = new System.Windows.Forms.TextBox();
@@ -46,7 +46,6 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dtpFechaReservacion = new System.Windows.Forms.DateTimePicker();
             this.nudHoras = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,6 +56,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtFechaReservacion = new System.Windows.Forms.MaskedTextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tabControlSolicitud.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -80,35 +81,36 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.panel6);
+            this.tabPage1.Controls.Add(this.btnCancelar);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(911, 483);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Solicitudes";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.btnNuevo);
             this.panel6.Controls.Add(this.btnBuscarMiSolicitud);
             this.panel6.Controls.Add(this.dgdMiSolicitud);
             this.panel6.Controls.Add(this.txtValorMiSolicitud);
             this.panel6.Controls.Add(this.cbxCriterioMiSolicitud);
             this.panel6.Location = new System.Drawing.Point(40, 69);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(794, 341);
+            this.panel6.Size = new System.Drawing.Size(794, 340);
             this.panel6.TabIndex = 0;
             // 
-            // button1
+            // btnNuevo
             // 
-            this.button1.Location = new System.Drawing.Point(317, 176);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnNuevo.Location = new System.Drawing.Point(317, 176);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnNuevo.TabIndex = 4;
+            this.btnNuevo.Text = "Nueva";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnBuscarMiSolicitud
             // 
@@ -164,7 +166,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(911, 483);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Nueva";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -226,7 +228,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 34);
             this.label1.TabIndex = 30;
-            this.label1.Text = "Nuevo";
+            this.label1.Text = "Nueva";
             // 
             // btnLimpiar
             // 
@@ -252,7 +254,7 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.dtpFechaReservacion);
+            this.panel4.Controls.Add(this.txtFechaReservacion);
             this.panel4.Controls.Add(this.nudHoras);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label5);
@@ -267,14 +269,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(365, 318);
             this.panel4.TabIndex = 31;
-            // 
-            // dtpFechaReservacion
-            // 
-            this.dtpFechaReservacion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaReservacion.Location = new System.Drawing.Point(126, 123);
-            this.dtpFechaReservacion.Name = "dtpFechaReservacion";
-            this.dtpFechaReservacion.Size = new System.Drawing.Size(207, 22);
-            this.dtpFechaReservacion.TabIndex = 36;
             // 
             // nudHoras
             // 
@@ -331,7 +325,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(33, 199);
+            this.label9.Location = new System.Drawing.Point(33, 198);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 17);
             this.label9.TabIndex = 21;
@@ -348,11 +342,11 @@
             // 
             // txtComentario
             // 
-            this.txtComentario.Location = new System.Drawing.Point(35, 218);
+            this.txtComentario.Location = new System.Drawing.Point(35, 228);
             this.txtComentario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Size = new System.Drawing.Size(297, 78);
+            this.txtComentario.Size = new System.Drawing.Size(297, 68);
             this.txtComentario.TabIndex = 17;
             // 
             // panel5
@@ -362,6 +356,25 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(365, 49);
             this.panel5.TabIndex = 32;
+            // 
+            // txtFechaReservacion
+            // 
+            this.txtFechaReservacion.Location = new System.Drawing.Point(125, 123);
+            this.txtFechaReservacion.Mask = "0000/00/00 90:\\0\\0";
+            this.txtFechaReservacion.Name = "txtFechaReservacion";
+            this.txtFechaReservacion.Size = new System.Drawing.Size(208, 22);
+            this.txtFechaReservacion.TabIndex = 42;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(43, 415);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(160, 23);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "Cancelar Solicitud";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmSolicitudes
             // 
@@ -401,7 +414,6 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DateTimePicker dtpFechaReservacion;
         private System.Windows.Forms.NumericUpDown nudHoras;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
@@ -417,6 +429,8 @@
         private System.Windows.Forms.ComboBox cbxEdificio;
         private System.Windows.Forms.ComboBox cbxCampus;
         private System.Windows.Forms.DataGridView dgdAula;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.MaskedTextBox txtFechaReservacion;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

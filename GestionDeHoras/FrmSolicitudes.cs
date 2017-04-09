@@ -20,10 +20,16 @@ namespace GestionDeHoras
 
         public void consultarMiSolicitud()
         {
-
-            
             string idUsuario = bd.getIdUsuario();
-            odt = bd.consultar(FrmTipo, "ID_Usuario", idUsuario);
+            if (cbxCriterioMiSolicitud.Text != "" && txtValorMiSolicitud.Text != "")
+            {
+                odt = bd.consultar(FrmTipo, cbxCriterioMiSolicitud.Text, txtValorMiSolicitud.Text, "ID_Usuario", idUsuario);
+            }
+            else
+            {
+                odt = bd.consultar(FrmTipo, "ID_Usuario", idUsuario);
+            }
+            
             
             dgdMiSolicitud.DataSource = odt;
             dgdMiSolicitud.Refresh();
@@ -53,10 +59,9 @@ namespace GestionDeHoras
             if (cbxCampus.Text != "" && cbxEdificio.Text != "")
             {
                 string sql = " select top 1 id from Edificio where nombre  = '" + cbxEdificio.Text + "' ";
-
-                string idEdificio = bd.ejecutarSQL(sql).Rows.OfType<DataRow>().Select(dr => dr.Field<int>("id")).ToList().First().ToString();
-
-                odt = bd.consultar("Aula", "ID_Edificio", idEdificio);
+                string idCampus = bd.getIdCriterioPorNombre("CAMPUS", "Nombre", cbxCampus.Text);
+                string idEdificio = bd.getIdCriterioPorNombre("EDIFICIO","Nombre", cbxEdificio.Text,"ID_Campus", idCampus);
+                odt = bd.buscar("Aula", "ID_Edificio", idEdificio);
             }
             else
             {
@@ -104,27 +109,29 @@ namespace GestionDeHoras
         {
             txtAula.Clear();
             txtID_Aula.Clear();
-            dtpFechaReservacion.ResetText();
+            txtFechaReservacion.Clear();
             txtComentario.Clear();
 
         }
 
         public void agregar()
         {
-            if (txtID_Aula.Text != "" && dtpFechaReservacion.Text != "" && nudHoras.Text != "")
+            if (txtID_Aula.Text != "" && txtFechaReservacion.Text != "" && nudHoras.Text != "")
             {
                 string SQLUsuario =  "Select ID_Usuario from " + Program.getAcceso()  + " where No_Carnet = '" +Program.getNo_Carnet() +"' ";
                 string idUsuario = bd.ejecutarSQL(SQLUsuario).Rows.OfType<DataRow>().Select(dr => dr.Field<int>("ID_Usuario")).ToList().First().ToString();
 
-                string SQL = " Insert into Solicitud ( ID_Usuario, ID_Aula,Fecha_Reservacion, Cantidad_Hora,Comentario) values ( ";
+                string SQL = " Insert into Solicitud ( ID_Usuario, ID_Aula,Fecha_Reservacion, Cantidad_Hora,Comentario, Estado, Ejecucion) values ( ";
           
 
 
                 SQL += " '" + idUsuario + "'";
                 SQL += ", '" + txtID_Aula.Text + "'";
-                SQL += ", '" + dtpFechaReservacion.Text + "'";
+                SQL += ", '" + txtFechaReservacion.Text + "'";
                 SQL += ", '" + nudHoras.Text + "'";
                 SQL += ", '" + txtComentario.Text + "'";
+                SQL += ", 'ACTIVO'";
+                SQL += ", 'ABIERTO'";
                 SQL += ")";
 
                 if (bd.insertar(SQL))
@@ -141,12 +148,29 @@ namespace GestionDeHoras
             }
         }
 
+        public void cancelarSolicitud()
+        {
+            if (bd.conectar())
+            {
+                DataGridViewRow row = dgdMiSolicitud.CurrentCell.OwningRow;
+                string id = row.Cells[0].Value.ToString();
+                string SQL = "UPDATE Solicitud ";
+                SQL += "set Ejecucion = 'CANCELADO'";
+                SQL += ", Estado = 'INACTIVO'";
+                SQL += "where id = '"+id+"' ";
+                bd.actualizar(SQL);
+            }
+        }
+
         public void cargarCampus()
         {
             if (bd.conectar())
             {
                 List<string> criterio = bd.consultar("Campus").Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Nombre")).ToList(); ;
                 int i = 0;
+                cbxCampus.Items.Clear();
+                cbxCampus.Text = "";
+                cbxCampus.Items.Add("");
                 while (i < criterio.Count())
                 {
                     cbxCampus.Items.Add(criterio.ElementAt(i));
@@ -161,11 +185,12 @@ namespace GestionDeHoras
         {
             if (bd.conectar())
             {
-                string sql = " select top 1 id from campus where nombre  = '"+cbxCampus.Text+"' ";
-
-                string idCampus = bd.ejecutarSQL(sql).Rows.OfType<DataRow>().Select(dr => dr.Field<int>("id")).ToList().First().ToString();
-                List<string> criterio = bd.consultar("Edificio", "ID_Campus",idCampus).Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Nombre")).ToList(); 
+                string idCampus = bd.getIdCriterioPorNombre("Campus", "Nombre", cbxCampus.Text);
+                List<string> criterio = bd.getListaCriterio("EDIFICIO", "ID_Campus", idCampus,"Nombre");
                 int i = 0;
+                cbxEdificio.Text = "";
+                cbxEdificio.Items.Clear();
+                cbxEdificio.Items.Add("");
                 while (i < criterio.Count())
                 {
                     cbxEdificio.Items.Add(criterio.ElementAt(i));
@@ -190,8 +215,16 @@ namespace GestionDeHoras
             {
                 cargarCriterioMiSolicitud();
                 cargarCampus();
+                if (bd.getAcceso() == "EMPLEADO")
+                {
+                    consultarTodaSolicitud();
+                    btnCancelar.Visible = true;
+                    btnAgregar.Enabled = false;
+                }
+
                 consultarMiSolicitud();
                 consultarAula();
+
             }
         }
 
@@ -209,6 +242,7 @@ namespace GestionDeHoras
         private void cbxCampus_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarEdificio();
+            consultarAula();
         }
 
         private void btnBuscarAula_Click(object sender, EventArgs e)
@@ -236,6 +270,12 @@ namespace GestionDeHoras
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             agregar();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            cancelarSolicitud();
+            consultarTodaSolicitud();
         }
     }
 }
