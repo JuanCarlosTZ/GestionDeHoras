@@ -42,5 +42,15 @@ namespace GestionDeHoras.Properties {
                 return ((string)(this["DBUNAPECConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JTEJEDA;Initial Catalog=GESTIONDEAULA;Integrated Security=True")]
+        public string GESTIONDEAULAConnectionString {
+            get {
+                return ((string)(this["GESTIONDEAULAConnectionString"]));
+            }
+        }
     }
 }

@@ -36,6 +36,7 @@
             this.dgdMiSolicitud = new System.Windows.Forms.DataGridView();
             this.txtValorMiSolicitud = new System.Windows.Forms.TextBox();
             this.cbxCriterioMiSolicitud = new System.Windows.Forms.ComboBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtFechaReservacion = new System.Windows.Forms.MaskedTextBox();
             this.nudHoras = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtFechaReservacion = new System.Windows.Forms.MaskedTextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.tabControlSolicitud.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -148,6 +148,17 @@
             this.cbxCriterioMiSolicitud.Name = "cbxCriterioMiSolicitud";
             this.cbxCriterioMiSolicitud.Size = new System.Drawing.Size(121, 24);
             this.cbxCriterioMiSolicitud.TabIndex = 1;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(43, 415);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(160, 23);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "Cancelar Solicitud";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // tabPage2
             // 
@@ -270,6 +281,14 @@
             this.panel4.Size = new System.Drawing.Size(365, 318);
             this.panel4.TabIndex = 31;
             // 
+            // txtFechaReservacion
+            // 
+            this.txtFechaReservacion.Location = new System.Drawing.Point(125, 123);
+            this.txtFechaReservacion.Mask = "0000/00/00 90:\\0\\0";
+            this.txtFechaReservacion.Name = "txtFechaReservacion";
+            this.txtFechaReservacion.Size = new System.Drawing.Size(208, 22);
+            this.txtFechaReservacion.TabIndex = 42;
+            // 
             // nudHoras
             // 
             this.nudHoras.Location = new System.Drawing.Point(126, 164);
@@ -356,25 +375,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(365, 49);
             this.panel5.TabIndex = 32;
-            // 
-            // txtFechaReservacion
-            // 
-            this.txtFechaReservacion.Location = new System.Drawing.Point(125, 123);
-            this.txtFechaReservacion.Mask = "0000/00/00 90:\\0\\0";
-            this.txtFechaReservacion.Name = "txtFechaReservacion";
-            this.txtFechaReservacion.Size = new System.Drawing.Size(208, 22);
-            this.txtFechaReservacion.TabIndex = 42;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(43, 415);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(160, 23);
-            this.btnCancelar.TabIndex = 5;
-            this.btnCancelar.Text = "Cancelar Solicitud";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Visible = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmSolicitudes
             // 

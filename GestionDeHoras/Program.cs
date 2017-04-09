@@ -52,10 +52,10 @@ namespace GestionDeHoras
                 case "PROFESOR":
                     Application.Run(new FrmSolicitudes());
                     break;
-                default:
-                    MessageBox.Show("Acceso denegado");
-                    break;
             }
+
+
+
             Application.Run(new c_reservaciones());
 
 

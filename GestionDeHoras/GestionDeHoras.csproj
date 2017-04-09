@@ -33,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -111,6 +114,12 @@
     <Compile Include="FrmProfesor.Designer.cs">
       <DependentUpon>FrmProfesor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReportSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportSolicitud.Designer.cs">
+      <DependentUpon>FrmReportSolicitud.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +150,16 @@
     <Compile Include="FrmTipoAula.Designer.cs">
       <DependentUpon>FrmTipoAula.cs</DependentUpon>
     </Compile>
+    <Compile Include="GESTIONDEAULADataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GESTIONDEAULADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GESTIONDEAULADataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GESTIONDEAULADataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FrmUsuario.cs">
@@ -150,6 +169,12 @@
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Validar.cs" />
+    <Compile Include="VisorReportecs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisorReportecs.Designer.cs">
+      <DependentUpon>VisorReportecs.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Control.resx">
       <DependentUpon>Control.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProfesor.resx">
       <DependentUpon>FrmProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportSolicitud.resx">
+      <DependentUpon>FrmReportSolicitud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRol.resx">
       <DependentUpon>FrmRol.cs</DependentUpon>
@@ -205,6 +233,10 @@
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="VisorReportecs.resx">
+      <DependentUpon>VisorReportecs.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DBUNAPECDataSet.xsc">
       <DependentUpon>DBUNAPECDataSet.xsd</DependentUpon>
     </None>
@@ -226,6 +258,28 @@
     </None>
     <None Include="DBUNAPECDataSet1.xss">
       <DependentUpon>DBUNAPECDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GESTIONDEAULADataSet.xsc">
+      <DependentUpon>GESTIONDEAULADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GESTIONDEAULADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GESTIONDEAULADataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GESTIONDEAULADataSet.xss">
+      <DependentUpon>GESTIONDEAULADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GESTIONDEAULADataSet1.xsc">
+      <DependentUpon>GESTIONDEAULADataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GESTIONDEAULADataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GESTIONDEAULADataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GESTIONDEAULADataSet1.xss">
+      <DependentUpon>GESTIONDEAULADataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

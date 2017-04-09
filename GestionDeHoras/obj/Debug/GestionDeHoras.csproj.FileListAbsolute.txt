@@ -75,3 +75,8 @@ C:\Users\David\Documents\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHor
 C:\Users\David\Documents\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmSolicitudes.resources
 C:\Users\David\Documents\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmTanda.resources
 C:\Users\David\Documents\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmTipoAula.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.FrmReportSolicitud.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\GestionDeHoras.VisorReportecs.resources
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\RdlCompile.cache
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\obj\Debug\RdlCompile.compiled
+C:\Users\juanc\OneDrive\Documentos\Visual Studio 2015\Projects\GestionDeHoras\GestionDeHoras\bin\Debug\Microsoft.ReportViewer.WinForms.dll

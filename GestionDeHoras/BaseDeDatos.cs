@@ -290,6 +290,33 @@ namespace GestionDeHoras
             return lista;
         }
 
+        public DataTable getReporteSolicitud()
+        {
+
+            string SQL = "  Select SOLICITUD.ID as Solicitud ";
+            SQL += " ,USUARIO.Nombre as Usuario ";
+            SQL += " ,USUARIO.Cedula as Cedula  ";
+            SQL += " ,CAMPUS.Nombre as Campus ";
+            SQL += " ,EDIFICIO.Nombre as Edificio ";
+            SQL += " ,AULA.Nombre as Aula ";
+            SQL += " ,AULA.Tipo as Tipo_Aula ";
+            SQL += " ,SOLICITUD.Fecha_Reservacion ";
+            SQL += " , dateadd(hour, cantidad_hora, Fecha_reservacion) as Fecha_Fin ";
+            SQL += " ,SOLICITUD.Cantidad_Hora ";
+            SQL += " ,SOLICITUD.Estado ";
+            SQL += " ,SOLICITUD.Ejecucion ";
+
+
+            SQL += " from SOLICITUD ";
+            SQL += " inner join AULA on SOLICITUD.ID_Aula = aula.ID ";
+            SQL += " inner join EDIFICIO on AULA.ID_Edificio = EDIFICIO.ID ";
+            SQL += " inner join CAMPUS on EDIFICIO.ID_Campus = CAMPUS.ID ";
+            SQL += " inner join USUARIO on SOLICITUD.ID_Usuario = USUARIO.ID ";
+
+            return ejecutarSQL(SQL);
+
+        }
+
 
         public void iniciaTransaction()
         {

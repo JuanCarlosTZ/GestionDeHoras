@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -59,7 +60,8 @@
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button11 = new System.Windows.Forms.Button();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.solicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +96,16 @@
             this.panel1.Size = new System.Drawing.Size(1016, 319);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(410, 126);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(114, 23);
+            this.button11.TabIndex = 25;
+            this.button11.Text = "Solicitudes";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
@@ -318,7 +330,8 @@
             this.archivoToolStripMenuItem,
             this.irToolStripMenuItem,
             this.verToolStripMenuItem,
-            this.ayudaToolStripMenuItem});
+            this.ayudaToolStripMenuItem,
+            this.reportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -382,15 +395,20 @@
             this.versionToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.versionToolStripMenuItem.Text = "Version";
             // 
-            // button11
+            // reportToolStripMenuItem
             // 
-            this.button11.Location = new System.Drawing.Point(410, 126);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(114, 23);
-            this.button11.TabIndex = 25;
-            this.button11.Text = "Solicitudes";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.solicitudesToolStripMenuItem});
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.reportToolStripMenuItem.Text = "Report";
+            // 
+            // solicitudesToolStripMenuItem
+            // 
+            this.solicitudesToolStripMenuItem.Name = "solicitudesToolStripMenuItem";
+            this.solicitudesToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.solicitudesToolStripMenuItem.Text = "Solicitudes";
+            this.solicitudesToolStripMenuItem.Click += new System.EventHandler(this.solicitudesToolStripMenuItem_Click);
             // 
             // c_reservaciones
             // 
@@ -447,6 +465,8 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem solicitudesToolStripMenuItem;
     }
 }
 

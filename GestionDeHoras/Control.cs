@@ -120,5 +120,12 @@ namespace GestionDeHoras
         {
             new FrmSolicitudes().Show();
         }
+
+        private void solicitudesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //new FrmReportSolicitud().Show();
+            VisorReportecs frm = new VisorReportecs();
+            frm.ShowDialog();
+        }
     }
 }

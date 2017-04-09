@@ -273,3 +273,34 @@ Comentario varchar(255) NULL
 ALTER TABLE DETALLE_SOLICITUD ADD 
 CONSTRAINT Detalle_Solicitud_ID_Solicitud_fk FOREIGN KEY (ID_Solicitud) REFERENCES SOLICITUD(ID),
 CONSTRAINT Detalle_Solicitud_ID_Empleado_fk FOREIGN KEY (ID_Empleado) REFERENCES EMPLEADO(ID)
+
+
+
+create function ufnReporteSolicitud()
+returns table
+as 
+return 
+(
+
+Select 
+SOLICITUD.ID as Solicitud
+,USUARIO.Nombre as Usuario
+,USUARIO.Cedula as Cedula
+,CAMPUS.Nombre as Campus 
+,EDIFICIO.Nombre as Edificio 
+,AULA.Nombre as Aula
+,AULA.Tipo as Tipo_Aula
+,SOLICITUD.Fecha_Reservacion
+, dateadd(hour, cantidad_hora, Fecha_reservacion) as Fecha_Fin 
+,SOLICITUD.Cantidad_Hora
+,SOLICITUD.Estado
+,SOLICITUD.Ejecucion
+
+
+from SOLICITUD 
+inner join AULA on SOLICITUD.ID_Aula = aula.ID
+inner join EDIFICIO on AULA.ID_Edificio = EDIFICIO.ID
+inner join CAMPUS on EDIFICIO.ID_Campus = CAMPUS.ID 
+inner join USUARIO on SOLICITUD.ID_Usuario = USUARIO.ID
+
+)
